@@ -2,7 +2,7 @@
 \alias{speedcomp}
 \alias{speedcomp-class}
 \alias{show,speedcomp-method}
-\title{Comparing CPU times of several \R expressions}
+\title{Comparing CPU times of several R expressions}
 \description{
 This function enables comparing CPU times of several \R expressions.
 The times are calculated via \code{\link{system.time}},

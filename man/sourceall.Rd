@@ -6,7 +6,7 @@ This function sources the files in a specified directory that follow
 the supplied pattern.
 }
 \usage{
-sourceall(dir = getwd(), pattern = ".*\\.R", ...)
+sourceall(dir = getwd(), pattern = ".*\\\.R", ...)
 }
 \arguments{
   \item{dir}{character, the directory to look for the files. Defaults to the
