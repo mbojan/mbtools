@@ -4,11 +4,17 @@
 
 setwd <- function(dir)
 {
-    r <- try(.Internal(setwd(dir)))
-    # Add the working directory to the window title
-    if( !inherits(r, "try-error") )
+    if(.Platform$OS.type == "windows" & .Platform$GUI == "Rgui")
     {
-	utils:::setWindowTitle( paste("[", getwd(), "]", sep="") )
+        r <- try(.Internal(setwd(dir)))
+        # Add the working directory to the window title
+        if( !inherits(r, "try-error") )
+        {
+        utils:::setWindowTitle( paste("[", getwd(), "]", sep="") )
+        }
+    } else
+    {
+        setwd(dir)
     }
 }
 
@@ -16,12 +22,18 @@ setwd <- function(dir)
 
 getwd <- function()
 {
-    rval <- .Internal(getwd())
-    # Add the working directory to the window title
-    if( !inherits(rval, "try-error") )
+    if(.Platform$OS.type == "windows" & .Platform$GUI == "Rgui")
     {
-	utils:::setWindowTitle( paste("[", rval, "]", sep="") )
+        rval <- .Internal(getwd())
+        # Add the working directory to the window title
+        if( !inherits(rval, "try-error") )
+        {
+        utils:::setWindowTitle( paste("[", rval, "]", sep="") )
+        }
+        rval
+    } else
+    {
+        getwd()
     }
-    rval
 }
 
