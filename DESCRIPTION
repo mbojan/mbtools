@@ -6,7 +6,6 @@ Date: 2010-09-20
 Author: Michal Bojanowski
 URL: http://www.bojanorama.pl
 Maintainer: Michal Bojanowski <michal2992@gmail.com>
-Depends: methods
 Description: Various utility functions for some common tasks: data
 	manipulation, utilities helping in developing R packages.
 License: GPL 3
