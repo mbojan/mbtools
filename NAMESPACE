@@ -1,0 +1,5 @@
+import(methods)
+
+export(see, show.keywords, sourceall, speedcomp)
+exportMethods("ncinfo")
+export(setwd, getwd)
