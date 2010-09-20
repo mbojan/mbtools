@@ -1,0 +1,20 @@
+$Id$
+
+		       TODO file for package 'mbtools'
+			      Michal Bojanowski
+			    michal2992@gmail.com
+
+=============================================================================
+Bugs
+
+
+
+=============================================================================
+Fixes (non-critical bugs)
+
+ o) Drop 'getwd' and 'setwd' to a different package?
+
+=============================================================================
+New featues (no particular order)
+
+	vim:fo+=n:tw=77:autoindent:flp=^\\s*[o\\d]\\+[\\]\:.)}\\t\ ]\\s*
