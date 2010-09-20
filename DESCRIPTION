@@ -1,15 +1,13 @@
 Package: mbtools
 Type: Package
 Title: Collection of development tools for R
-Version: 0.0-1
-Date: 2008-10-20
+Version: 0.1-0
+Date: 2010-09-20
 Author: Michal Bojanowski
-URL: http://bojan.3e.pl/weblog
+URL: http://www.bojanorama.pl
 Maintainer: Michal Bojanowski <michal2992@gmail.com>
 Depends: methods
-Enhances: RNetCDF
-Description: Collection of functions usefull for working with R and developing
-	for R
-License: Artistic
+Description: Various utility functions for some common tasks: data
+	manipulation, utilities helping in developing R packages.
+License: GPL 3
 LazyLoad: yes
-Packaged: Mon Oct 20 17:34:11 2008; svisitor
