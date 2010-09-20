@@ -25,3 +25,7 @@ Originals \code{\link[base]{getwd}}, \code{\link[base]{setwd}}.
 As well as \code{\link[utils]{setWindowTitle}}.
 #endif
 }
+\examples{
+(WD <- getwd())
+if (!is.null(WD)) setwd(WD)
+}

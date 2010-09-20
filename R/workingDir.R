@@ -14,7 +14,7 @@ setwd <- function(dir)
         }
     } else
     {
-        setwd(dir)
+        base::setwd(dir)
     }
 }
 
@@ -33,7 +33,7 @@ getwd <- function()
         rval
     } else
     {
-        getwd()
+        base::getwd()
     }
 }
 
