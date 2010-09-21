@@ -6,5 +6,6 @@ export(
 	sourceall,
 	speedcomp,
 	dePolish,
+	grepex,
 	carryover
 )
