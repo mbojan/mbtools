@@ -1,23 +1,35 @@
+.readLetterspl <- function(enc=c("utf-8", "latin2", "win1250"))
+{
+    a <- match.arg(enc)
+    fname <- file.path("/home/michal/R/src/mbtools/mbtools-dev/inst/extdata",
+                    paste("letterspl", enc, "txt", sep="."))
+            # fname <- system.file(file.path("extdata", paste("letterspl", enc, "txt", sep=".")), package="mbtools")
+    rval <- read.table(fname, header=FALSE, as.is=TRUE)
+    names(rval) <- c("ascii", "nat")
+    rval
+}
+
 dePolish <-
 function (x, encoding = NULL) 
 {
-    d <- read.table(system.file("polish/letterspl.txt", package = "bojan"), 
-        header = TRUE, as.is = TRUE)
     if (is.null(encoding)) {
         if (.Platform$OS.type == "windows") 
-            s <- d$cp1250
+            encoding <- "win1250"
         else {
-            s <- iconv(d$latin2, from = "latin2", to = "")
+            encoding <- "utf-8"
         }
+        d <- .readLetterspl(enc=encoding)
     }
     else {
-        if (encoding == "utf-8" | encoding == "utf8") 
-            s <- d$utf8
-        else s <- iconv(d$latin2, from = "latin2", to = encoding)
+        if ( encoding == "utf8") 
+            encoding <- "utf-8"
+        d <- .readLetterspl(enc="latin2")
+        d$nat <- iconv(d$nat, from="latin2", to=encoding)
     }
     rval <- x
     for (i in seq(1, nrow(d))) {
-        rval <- gsub(s[i], d$ascii[i], rval)
+        rval <- gsub(d$nat[i], d$ascii[i], rval)
     }
     rval
 }
+
