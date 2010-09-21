@@ -8,5 +8,8 @@ export(
 	dePolish,
 	grepex,
 	lss,
+	recode,
+	rescale,
+	wcalc,
 	carryover
 )
