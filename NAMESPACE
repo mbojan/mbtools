@@ -7,5 +7,6 @@ export(
 	speedcomp,
 	dePolish,
 	grepex,
+	lss,
 	carryover
 )
