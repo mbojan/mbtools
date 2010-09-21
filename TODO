@@ -12,9 +12,10 @@ Bugs
 =============================================================================
 Fixes (non-critical bugs)
 
- o) Drop 'getwd' and 'setwd' to a different package?
 
 =============================================================================
 New featues (no particular order)
+
+  o) Add object with the current address of my private repository.
 
 	vim:fo+=n:tw=77:autoindent:flp=^\\s*[o\\d]\\+[\\]\:.)}\\t\ ]\\s*
