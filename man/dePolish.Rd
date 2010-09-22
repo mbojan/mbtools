@@ -26,12 +26,3 @@ to translate the letters to default encoding on current locale (via argument
 A character vector after substitutions
 }
 \seealso{\code{\link{sub}}, \code{\link{iconv}}}
-\examples{
-\dontrun{
-#  some Polish family name
-x <- "G\xbfeg\xbf\xf3\xb3ka"
-dePolish(x)
-rm(x) # cleanup
-}
-}
-\keyword{character}
