@@ -11,5 +11,6 @@ export(
 	recode,
 	rescale,
 	wcalc,
+	mbrepo,
 	carryover
 )
