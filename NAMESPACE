@@ -12,5 +12,9 @@ export(
 	rescale,
 	wcalc,
 	mbrepo,
-	carryover
+	carryover,
+	setcompare
 )
+
+S3method(setcompare, default)
+S3method(setcompare, data.frame)
