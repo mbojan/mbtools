@@ -26,3 +26,8 @@ to translate the letters to default encoding on current locale (via argument
 A character vector after substitutions
 }
 \seealso{\code{\link{sub}}, \code{\link{iconv}}}
+\examples{
+\dontshow{
+dePolish("dupa")
+}
+}

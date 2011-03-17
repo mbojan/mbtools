@@ -1,9 +1,7 @@
 .readLetterspl <- function(enc=c("utf-8", "latin2", "win1250"))
 {
     a <- match.arg(enc)
-    fname <- file.path("/home/michal/R/src/mbtools/mbtools-dev/inst/extdata",
-                    paste("letterspl", enc, "txt", sep="."))
-            # fname <- system.file(file.path("extdata", paste("letterspl", enc, "txt", sep=".")), package="mbtools")
+    fname <- system.file("extdata", paste("letterspl", enc, "txt", sep="."), package="mbtools")
     rval <- read.table(fname, header=FALSE, as.is=TRUE)
     names(rval) <- c("ascii", "nat")
     rval
