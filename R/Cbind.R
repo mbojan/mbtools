@@ -3,8 +3,6 @@
 Cbind <- function(...)
 {
   al <- list(...)
-  # convert everything to a data frame
-  al <- lapply(al, as.data.frame)
   # all arguments must have rownames defined
   stopifnot( sapply(al, function(x) !is.null(rownames(x))))
   # number of columns per argument
@@ -26,6 +24,11 @@ Cbind <- function(...)
   rval
 }
 
+
+
+
+if(FALSE)
+{
 m1 <- m2 <- matrix(1:4, 2, 2)
 colnames(m1) <- colnames(m2) <- 1:2
 rownames(m1) <- c("a", "b")
@@ -35,3 +38,4 @@ l <- list(m1=m1, m2=m2,
   )
 
 Cbind(m1, m2)
+}
