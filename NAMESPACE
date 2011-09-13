@@ -14,7 +14,8 @@ export(
 	mbrepo,
 	carryover,
 	setcompare,
-	Cbind
+	Cbind,
+	cw
 )
 
 S3method(setcompare, default)
