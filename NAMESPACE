@@ -15,7 +15,8 @@ export(
 	carryover,
 	setcompare,
 	Cbind,
-	cw
+	cw,
+	attributize
 )
 
 S3method(setcompare, default)
