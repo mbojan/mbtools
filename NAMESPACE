@@ -21,3 +21,6 @@ export(
 
 S3method(setcompare, default)
 S3method(setcompare, data.frame)
+
+S3method(attributize, default)
+S3method(attributize, data.frame)
