@@ -1,13 +1,12 @@
 include Makevars
 
 .PHONY: check
-check: 
-	$(RCALL) check -o $(CHECKDIR) $(CURDIR)
+check: build
+	$(RCALL) check -o $(CHECKDIR) $(CHECKARGS) `ls -1 ../$(PKGNAME)*.tar.gz`
 
 .PHONY: build
 build: 
-	$(RCALL) build $(SRCDIR)
-	mv $(PKGNAME)*tar.gz $(shell dirname $(SRCDIR))/
+	(cd .. && $(RCALL) build $(BUILDARGS) $(SRCDIR))
 
 .PHONY: install
 install: 
@@ -19,6 +18,14 @@ commit:
 	@svn diff > svndiff
 	@svn commit --editor-cmd 'vim -c "sp svndiff"'
 	@rm svndiff
+
+.PHONY: editr
+editr:
+	vim -p R/*.R
+
+.PHONY: editman
+editman:
+	vim -p man/*.Rd
 
 
 .PHONY: checkcode
@@ -33,9 +40,21 @@ checkdoc:
 cleanall:
 	- rm -f $(CHECKDIR) $(PKGPDF) $(PKGDVI)
 
+.PHONY: clean
+clean:
+	- rm -f *.tar.gz
+
 .PHONY: uninstall
 uninstall:
 	- rm -R --force $(INSTALLDIR)
+
+# Run unit tests
+.PHONY: tests
+tests:
+	export RCMDCHECK=FALSE
+	$(RCALL) INSTALL -l $(INSTALLDIR) $(SRCDIR)
+	(cd tests && R --slave < doRUnit.R)
+
 
 # package manuals
 
