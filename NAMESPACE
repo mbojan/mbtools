@@ -16,7 +16,8 @@ export(
 	setcompare,
 	Cbind,
 	cw,
-	attributize
+	attributize,
+	devlib
 )
 
 S3method(setcompare, default)
