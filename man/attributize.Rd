@@ -9,8 +9,8 @@
 }
 \usage{
 attributize(x, ...)
-attributize.default(x, ..., na.last = FALSE, vcol = ncol(d))
-attributize.data.frame(x, vec, vcol = ncol(x), ...)
+\method{attributize}{default}(x, ..., na.last = FALSE, vcol = ncol(d))
+\method{attributize}{data.frame}(x, vec, vcol = ncol(x), ...)
 }
 \arguments{
   \item{x,vec}{input vector}
