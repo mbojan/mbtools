@@ -14,6 +14,7 @@
 #' @seealso \code{\link{source}}
 #' @keywords file programming
 #' @export sourceall
+#' @usage sourceall(dir = getwd(), pattern = ".*\\\\.R", ...)
 sourceall <- function( dir=getwd(), pattern=".*\\.R", ... )
 {
 	l <- list.files( dir, pattern=pattern, )

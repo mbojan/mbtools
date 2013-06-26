@@ -2,7 +2,7 @@
 \alias{sourceall}
 \title{Source all R-code files that match the pattern}
 \usage{
-  sourceall(dir = getwd(), pattern = ".*\\.R", ...)
+  sourceall(dir = getwd(), pattern = ".*\\\\.R", ...)
 }
 \arguments{
   \item{dir}{character, the directory to look for the
