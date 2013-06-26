@@ -5,6 +5,10 @@
 \title{Compare to sets}
 \usage{
   setcompare(x, y)
+
+  \method{setcompare}{default} (x, y)
+
+  \method{setcompare}{data.frame} (x, y)
 }
 \arguments{
   \item{x,y}{sets to compare. Implemented methods support

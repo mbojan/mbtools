@@ -27,10 +27,13 @@
 #' d2 <- structure(as.data.frame(matrix(rnorm(25), 5, 5)), names=letters[y])
 #' setcompare(d1, d2)
 #' 
-#' @export setcompare
+#' @export
 setcompare <- function(x, y) UseMethod("setcompare")
 
 
+#' @method setcompare default
+#' @export
+#' @rdname setcompare
 setcompare.default <- function(x, y)
 {
   list( x=setdiff(x, y),
@@ -38,6 +41,9 @@ setcompare.default <- function(x, y)
       y=setdiff(y, x) )
 }
 
+#' @method setcompare data.frame
+#' @export
+#' @rdname setcompare
 setcompare.data.frame <- function(x, y)
 {
   setcompare.default( names(x), names(y))
