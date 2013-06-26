@@ -26,7 +26,6 @@ Collate:
     'lss.R'
     'mbrepo.R'
     'mbtools-package.R'
-    'mbtoolsMenu.R'
     'recode.R'
     'rescale.R'
     'see.R'
@@ -35,4 +34,3 @@ Collate:
     'sourceall.R'
     'speedcomp.R'
     'wcalc.R'
-    'zzz.R'
