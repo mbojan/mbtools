@@ -22,6 +22,9 @@ attributize <- function(x, ...) UseMethod("attributize")
 
 
 
+#' @method attributize data.frame
+#' @export
+#' @rdname attributize
 # given data frame that assignes unique values (last column) to attributes and
 # a vector
 attributize.data.frame <- function(x, vec, vcol=ncol(x), ...)
@@ -31,6 +34,11 @@ attributize.data.frame <- function(x, vec, vcol=ncol(x), ...)
   structure( list(a=r, d=x, v=vec), class="attributize")
 }
 
+
+
+#' @method attributize default
+#' @export
+#' @rdname attributize
 # given a vector
 attributize.default <- function(x, ..., na.last=FALSE, vcol=ncol(d))
 {
