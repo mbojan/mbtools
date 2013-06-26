@@ -3,11 +3,33 @@ Type: Package
 Title: Collection of development tools for R
 Version: 0.1-0
 Date: 2010-09-20
-Author: Michal Bojanowski
+Author@R: person("Michal", "Bojanowski", role=c("aut", "cre"), email="michal2992@gmail.com")
 URL: http://www.bojanorama.pl
-Maintainer: Michal Bojanowski <michal2992@gmail.com>
-Depends: methods
+Depends:
+    methods
+Suggests: devtools, testthat
 Description: Various utility functions for some common tasks: data
-	manipulation, utilities helping in developing R packages.
+    manipulation, utilities helping in developing R packages.
 License: GPL-3
 LazyLoad: yes
+Collate:
+    'Cbind.R'
+    'attributize.R'
+    'carryover.R'
+    'cw.R'
+    'dePolish.R'
+    'devlib.R'
+    'grepex.R'
+    'lss.R'
+    'mbrepo.R'
+    'mbtools-package.R'
+    'mbtoolsMenu.R'
+    'recode.R'
+    'rescale.R'
+    'see.R'
+    'setcompare.R'
+    'show.keywords.R'
+    'sourceall.R'
+    'speedcomp.R'
+    'wcalc.R'
+    'zzz.R'
