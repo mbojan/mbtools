@@ -1,24 +1,30 @@
 \name{sourceall}
 \alias{sourceall}
 \title{Source all R-code files that match the pattern}
-\description{
-This function sources the files in a specified directory that follow
-the supplied pattern.
-}
 \usage{
-sourceall(dir = getwd(), pattern = ".*\\\.R", ...)
+  sourceall(dir = getwd(), pattern = ".*\\.R", ...)
 }
 \arguments{
-  \item{dir}{character, the directory to look for the files. Defaults to the
-  working directory}
-  \item{pattern}{character, the regular expression that defines the pattern of
-	  the files to be sourced. Defaults to all files with ".R" extension.}
+  \item{dir}{character, the directory to look for the
+  files. Defaults to the working directory}
+
+  \item{pattern}{character, the regular expression that
+  defines the pattern of the files to be sourced. Defaults
+  to all files with ".R" extension.}
+
   \item{\dots}{other arguments passed to \code{source()}}
 }
-\details{
-All files in the \code{dir} directory are sourced in alphabetical order
-via \code{\link{source}}.
+\description{
+  This function sources the files in a specified directory
+  that follow the supplied pattern.
 }
-\seealso{\code{\link{source}}}
+\details{
+  All files in the \code{dir} directory are sourced in
+  alphabetical order via \code{\link{source}}.
+}
+\seealso{
+  \code{\link{source}}
+}
 \keyword{file}
 \keyword{programming}
+

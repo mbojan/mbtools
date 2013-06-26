@@ -1,32 +1,33 @@
 \name{grepex}
 \alias{grepex}
-\title{
-Extract portions of string(s) with regular expressions
-}
-\description{
-Given a character vector extract portions of each element with
-regular expressions.
-}
+\title{Extract portions of string(s) with regular expressions}
 \usage{
-grepex(pattern, x, multiple = FALSE, ...)
+  grepex(pattern, x, multiple = FALSE, ...)
 }
 \arguments{
   \item{pattern}{character vector, regular expressions}
+
   \item{x}{character vector, strings from which to extract}
+
   \item{multiple}{logical, currently ignored}
-  \item{\dots}{other arguments passed to \code{\link{regexpr}}}
-}
-\details{
-Every element of \code{x} is searched with patterns in \code{pattern}
-using \code{\link{regexpr}}. The matches are then extracted.
+
+  \item{\dots}{other arguments passed to
+  \code{\link{regexpr}}}
 }
 \value{
-A matrix \code{r}, say, with \code{length(pattern)} columns and
-\code{length(x)} rows. The entry \code{r[i,j]} of this matrix is a portion of
-\code{x[i]} which is  \emph{first match} of \code{pattern[i]}.
+  A matrix \code{r}, say, with \code{length(pattern)}
+  columns and \code{length(x)} rows. The entry
+  \code{r[i,j]} of this matrix is a portion of \code{x[i]}
+  which is \emph{first match} of \code{pattern[i]}.
 }
-\seealso{
-\code{\link{regexpr}}
+\description{
+  Given a character vector extract portions of each element
+  with regular expressions.
+}
+\details{
+  Every element of \code{x} is searched with patterns in
+  \code{pattern} using \code{\link{regexpr}}. The matches
+  are then extracted.
 }
 \examples{
 x <- c("On 2010-02-01 John Smith had a beer",
@@ -39,3 +40,7 @@ re <- c( isodate="\\\\<[0-9]{4}-[0-9]{2}-[0-9]{2}\\\\>",
 
 grepex(re, x)
 }
+\seealso{
+  \code{\link{regexpr}}
+}
+

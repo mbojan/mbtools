@@ -2,6 +2,21 @@
 # that can be used as plotting attributes. For example, return a vector of
 # colors, vector of shapes etc.
 
+
+
+#' Map a vector to several plotting attributes
+#' 
+#' Given a vector with likely high number of unique values create a list of
+#' vectors which combinations cover the unique values of the input vector.
+#' 
+#' 
+#' @aliases attributize attributize.default attributize.data.frame
+#' @param x,vec input vector
+#' @param na.last logical, passed to \code{sort}
+#' @param vcol numeric vector, column id with input vector values
+#' @param \dots other arguments passed to/from other methods
+#' @return data frame
+#' @export attributize
 attributize <- function(x, ...) UseMethod("attributize")
 
 

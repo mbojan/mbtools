@@ -1,33 +1,36 @@
 \name{lss}
 \alias{lss}
 \title{List object names along with classes and sizes}
-\description{
-List, and optionally plot, all the objects in the specified environment along
-with their class attribute and size in bytes.
-}
 \usage{
-lss(graph = FALSE, env = .GlobalEnv, ...)
+  lss(graph = FALSE, env = .GlobalEnv, ...)
 }
 \arguments{
-  \item{graph}{logical, should a dotchart of sizes by produced}
-  \item{env}{environment to scan for objects, defaults to Global Environment}
+  \item{graph}{logical, should a dotchart of sizes by
+  produced}
+
+  \item{env}{environment to scan for objects, defaults to
+  Global Environment}
+
   \item{...}{other arguments passed to \code{ls}}
 }
-\details{
-The function scans the environment supplied by \code{env}
-with the \code{ls} function for objects. Then the classes
-of these objects are retrieved with \code{object.size}.
-
-If \code{graph} is \code{TRUE} then additionally a dotchart
-with showing object sizes is produced.
-}
 \value{
-A data frame with two columns ``class'' and ``size'' containing the class and
-size (in bytes) of the objects found in the environment \code{env}.
+  A data frame with two columns ``class'' and ``size''
+  containing the class and size (in bytes) of the objects
+  found in the environment \code{env}.
 }
-\seealso{\code{ls} for listing the objects, \code{object.size}
-for calculating the memory size of an object, \code{dotchart}
-for making dotcharts}
+\description{
+  List, and optionally plot, all the objects in the
+  specified environment along with their class attribute
+  and size in bytes.
+}
+\details{
+  The function scans the environment supplied by \code{env}
+  with the \code{ls} function for objects. Then the classes
+  of these objects are retrieved with \code{object.size}.
+
+  If \code{graph} is \code{TRUE} then additionally a
+  dotchart with showing object sizes is produced.
+}
 \examples{
 # make some environment
 e <- new.env()
@@ -45,4 +48,10 @@ lss(TRUE, env=e)
 # clean-up
 rm(e)
 }
+\seealso{
+  \code{ls} for listing the objects, \code{object.size} for
+  calculating the memory size of an object, \code{dotchart}
+  for making dotcharts
+}
 \keyword{environment}
+

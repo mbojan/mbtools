@@ -1,27 +1,16 @@
-import(methods)
-
-export(
-	see,
-	show.keywords,
-	sourceall,
-	speedcomp,
-	dePolish,
-	grepex,
-	lss,
-	recode,
-	rescale,
-	wcalc,
-	mbrepo,
-	carryover,
-	setcompare,
-	Cbind,
-	cw,
-	attributize,
-	devlib
-)
-
-S3method(setcompare, default)
-S3method(setcompare, data.frame)
-
-S3method(attributize, default)
-S3method(attributize, data.frame)
+export(Cbind)
+export(attributize)
+export(carryover)
+export(cw)
+export(dePolish)
+export(devlib)
+export(grepex)
+export(lss)
+export(mbrepo)
+export(recode)
+export(rescale)
+export(setcompare)
+export(show.keywords)
+export(sourceall)
+export(speedcomp)
+export(wcalc)
