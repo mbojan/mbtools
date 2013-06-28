@@ -1,5 +1,8 @@
 S3method(attributize,data.frame)
 S3method(attributize,default)
+S3method(recode,data.frame)
+S3method(recode,default)
+S3method(recode,matrix)
 S3method(setcompare,data.frame)
 S3method(setcompare,default)
 export(Cbind)

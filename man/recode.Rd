@@ -1,45 +1,67 @@
 \name{recode}
 \alias{recode}
-\title{Recoding of variables}
+\alias{recode.data.frame}
+\alias{recode.default}
+\alias{recode.matrix}
+\title{Recoding variables (vectors)}
 \usage{
-  recode(x, mat)
+  recode(x, fromto, ...)
+
+  \method{recode}{data.frame} (x, fromto, ...)
+
+  \method{recode}{matrix} (x, fromto, ...)
+
+  \method{recode}{default} (x, fromto, ...)
 }
 \arguments{
   \item{x}{atomic vector, variable to be recoded}
 
-  \item{mat}{two-column matrix, the recoding scheme, see
-  Details}
+  \item{fromto}{two-column matrix or data frame, or a list}
+
+  \item{...}{Only used in the default method and expects
+  further elements of the recoding rule set}
 }
 \value{
-  Vector of the same mode and length as \code{x} with the
-  values recoded.
+  Vector of the same mode as second column of \code{fromto}
+  and length as \code{x} with the values recoded.
 }
 \description{
-  Given a vector and a recode matrix replace the values in
-  the vector that match the first column of the matrix with
-  the entries in the second column.
+  Transform the input vector into a new vector by replacing
+  old values with new values according to the specified
+  rules.
 }
 \details{
-  The values is \code{x} are recoded using the schema
-  provided with the matrix \code{mat}.  The values of
-  \code{x} tha match the values in \code{mat[,1]} are
-  replaced with the corresponding values in \code{mat[,2]}.
+  This is a generic function that dispatches methods based
+  on the class of the \code{fromto} argument, which
+  contains the recoding rules.
+
+  If \code{fromto} is a matrix or data frame, then it is
+  expected to have two columns.  The mode of the result is
+  determined by the mode of the second column of
+  \code{fromto}. For each 'i', values of \code{x} equal to
+  \code{fromto[i,1]} are replaced with \code{fromto[i,2]}.
+
+  If \code{fromto} is a list, it is expected to contain...
 }
 \examples{
-set.seed(12345)
-# variables with values 1:4
-x <- sample( 1:4, 20, replace=TRUE )
-x
+# Input vector
+x <- c(1,2,3,4,3,2,1)
 
-# recode 1->2, 3->4
-m <- matrix(c( 1,2, 3,4), ncol=2, byrow=TRUE)
-m
+# Recoding with rules as a matrix
+rmat <- matrix( c(1, 10, 4, 40), 2, 2, byrow=TRUE)
+recode(x, rmat)
 
-# recode and show the results
-r <- rbind(x=x, recoded=recode(x, m))
-colnames(r) <- rep("", ncol(r))
-colnames(r)[ r[1,] != r[2,] ] <- "v"
-r
+# Recoding with a data frame
+d <- data.frame(from = c(2, 3),
+                to = c("two", "three") )
+recode(x, d)
+
+
+# Recoding with rule sets
+r <- recode(x, c(1,2), "one or two",
+       c(3,4), "three or four",
+       5, "five")
+data.frame(x, r)
 }
 \seealso{
   \code{\link{match}}

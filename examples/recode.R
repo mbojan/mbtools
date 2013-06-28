@@ -1,14 +1,18 @@
-set.seed(12345)
-# variables with values 1:4
-x <- sample( 1:4, 20, replace=TRUE )
-x
+# Input vector
+x <- c(1,2,3,4,3,2,1)
 
-# recode 1->2, 3->4
-m <- matrix(c( 1,2, 3,4), ncol=2, byrow=TRUE)
-m
+# Recoding with rules as a matrix
+rmat <- matrix( c(1, 10, 4, 40), 2, 2, byrow=TRUE)
+recode(x, rmat)
 
-# recode and show the results
-r <- rbind(x=x, recoded=recode(x, m))
-colnames(r) <- rep("", ncol(r))
-colnames(r)[ r[1,] != r[2,] ] <- "v"
-r
+# Recoding with a data frame
+d <- data.frame(from = c(2, 3),
+                to = c("two", "three") )
+recode(x, d)
+
+
+# Recoding with rule sets
+r <- recode(x, c(1,2), "one or two",
+       c(3,4), "three or four",
+       5, "five")
+data.frame(x, r)
