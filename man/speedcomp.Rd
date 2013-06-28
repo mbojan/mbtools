@@ -1,7 +1,5 @@
 \name{speedcomp}
-\alias{show,speedcomp-method}
 \alias{speedcomp}
-\alias{speedcomp-class}
 \title{Comparing CPU times of several R expressions}
 \usage{
   speedcomp(...)
@@ -12,10 +10,13 @@
 }
 \value{
   An object of S4 class \code{speedcomp} with two slots
-
-  The included \code{\link{show}} method prints the results
-  nicely and additionally calculates the ratios of times
-  elapsed.
+  \describe{ \item{\code{e}}{list of expressions processed}
+  \item{\code{timings}}{matrix containing the CPU times of
+  the expressions in \code{e} estimated with
+  \code{\link{system.time}}. Rows correspond to expressions
+  and columns to the fields returned by
+  \code{\link{system.time}}, i.e. "user cpu", "system cpu",
+  "elapsed", "subproc1" and "subproc2"} }
 }
 \description{
   This function enables comparing CPU times of several
@@ -27,6 +28,10 @@
   The function uses \code{\link{system.time}} to estimate
   CPU times needed to evaluate each of the expressions. The
   output provides raw timings as well as ratios of time
+  elapsed.
+
+  The included \code{\link{show}} method prints the results
+  nicely and additionally calculates the ratios of times
   elapsed.
 }
 \examples{
