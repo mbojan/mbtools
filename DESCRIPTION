@@ -5,6 +5,8 @@ Version: 0.3-0
 Date: 2013-06-26
 Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
     email="michal2992@gmail.com")
+Imports:
+    scales
 URL: http://www.bojanorama.pl
 Depends:
     methods
