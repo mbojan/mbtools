@@ -32,27 +32,8 @@
 #' coefficients of the transformation.
 #' @seealso \code{\link{scale}}
 #' @keywords arith
-#' @examples
-#' 
-#' # simple functionality
-#' x <- rnorm(20)
-#' y <- rescale(x)
-#' summary(x)
-#' summary(y)
-#' # coefficients of the transformation
-#' k <- rescale(x, coef=TRUE)
-#' k
-#' 
-#' # show how it works on the plot
-#' plot(x, y, xlab="x", ylab="Result", main="Mechanics of 'rescale()'",
-#'   axes=TRUE, asp=1, sub=paste("a=", k$a, ", b=", k$b, sep=""))
-#' abline(v=c(min(x), max(x)), lty=2, col="gray")
-#' abline(h=c(min(y), max(y)), lty=2, col="gray")
-#' abline(a=k$a, b=k$b, col="gray")
-#' text( (max(x) + min(x))/2, (max(y) + min(y))/2,
-#'   label="a + bx", srt=tan(k$b) / pi * 180, pos=3)
-#' 
-#' @export rescale
+#' @example examples/rescale.R
+#' @export
 rescale <-
 function (x, nmin = 0, nmax = 1, na.rm = FALSE, coef = FALSE) 
 {

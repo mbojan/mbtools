@@ -50,7 +50,7 @@
   are returned in a list.
 }
 \examples{
-# simple functionality
+set.seed(123)
 x <- rnorm(20)
 y <- rescale(x)
 summary(x)
