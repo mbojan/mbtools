@@ -14,6 +14,8 @@ Suggests:
     devtools,
     testthat
 Description: Various utility functions for some common tasks: data
-    manipulation, utilities helping in developing R packages.
+    manipulation, utilities helping in developing R packages. A lot of
+    things are outdated. This package is a black hole of R routines
+    I wrote.
 License: GPL-3
 LazyLoad: yes

@@ -5,8 +5,14 @@
 \alias{mbtools-package}
 \title{Collection of development tools for R}
 \description{
-This package is a collection of utility function for working with and
-developing for .
+Various utility functions for some common tasks: data manipulation,
+plotting, etc. But mostly these are tools helping in developing R packages.
+}
+\details{
+Do mind that a lot of functions in this package are outdated. That is, you can
+find better solutions in other packages.
+
+This package is a black hole of R routines I wrote.
 }
 \author{
 Michal Bojanowski\cr \email{michal2992@gmail.com}\cr
