@@ -1,6 +1,6 @@
 Package: mbtools
 Type: Package
-Title: Collection of development tools for R
+Title: Chaotic Collection of Functions and Datasets Possibly Useful Also To Others
 Version: 0.3-0
 Date: 2013-06-26
 Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
@@ -17,5 +17,5 @@ Description: Various utility functions for some common tasks: data
     manipulation, utilities helping in developing R packages. A lot of
     things are outdated. This package is a black hole of R routines
     I wrote.
-License: GPL-3
+License: GPL-2
 LazyLoad: yes
