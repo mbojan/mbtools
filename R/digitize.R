@@ -1,3 +1,11 @@
+# Plot raster object with correct aspect ratio
+plot.raster <- function(r, ...)
+{
+  op <- par(mar=c(0,0,0,0))
+  on.exit(par(op))
+  plot(c(1, ncol(r)), c(1, nrow(r)), type="n", asp=1, ann=FALSE, axes=FALSE)
+  rasterImage(r, 1, 1, ncol(r), nrow(r))
+}
 
 join_pts <- function(l1, l2)
 {
@@ -10,73 +18,52 @@ join_pts <- function(l1, l2)
 # Locator
 
 Locator <- setRefClass("Locator",
-                       fields = list( pts = "list", adds = "list" ),
+                       fields = list( pts = "list" ),
                        methods = list(
+                                      initialize = function() {
+                                        pts <<- list(x=NULL, y=NULL)
+                                      },
+
                                       start = function(..., append=TRUE, col="red", type="p") {
                                         'Starts adding points'
                                         newp <- locator(..., col=col, type="p")
                                         if(append) { 
                                           pts <<- join_pts(pts, newp)
-                                          adds <<- c(adds, list(newp))
                                         } else { 
                                           pts <<- newp 
                                       } 
                                       },
 
-                                      undo = function() {
-                                        'undo last edit() operation'
+                                      plot = function(col="red", ...) {
+                                        points(pts, col=col, ...)
+                                      },
+
+                                      identify = function() {
+                                        .self$plot()
+                                        i <- identify(pts, atpen=TRUE)
+                                        i
+                                      },
+
+                                      remove = function(ind) {
+                                        pts <<- lapply(pts, function(x) x[-ind])
                                       }
+
                                       )
                        )
 
 
-
-
-
-#============================================================================ 
-# Digitize
-
-Digitize <- setRefClass("Digitize",
-                        fields=list( image = "numeric",
-                                    pts = "list",
+# Image digitizer
+Digitize <- setRefClass("Digitize", contain="Locator",
+                        fields=list( image="numeric",
                                     xpts = "numeric",
                                     ypts = "numeric",
-                                    xint = "numeric",
-                                    yint = "numeric" ),
+                                    xinterval = "numeric",
+                                    yinterval = "numeric" ),
                         methods = list(
-                                       initialize = function()
+                                       initialize = function(image)
+                                         image <<- image
                                        )
                         )
-
-
-Locator$methods(
-                initialize = function()
-                {
-                  pts <<- list(x=NULL, y=NULL)
-                },
-
-                start = function(..., append=TRUE, col="red", type="p")
-                {
-                  newp <- locator(..., col=col, type="p")
-                  if(append)
-                  {
-                    pts <<- join_pts(pts, newp)
-                  } else {
-                    pts <<- newp
-                  }
-                },
-
-                plot = function(..., new=FALSE)
-                {
-                  points(pts)
-                }
-
-                )
-
-
-
-Digitize <- setRefClass("Digitize", contains="Locator", fields=list(image="numeric"))
-o <- Digitize$new( image=readPNG("Rlogo-2.png"))
 
 #============================================================================ 
 
@@ -86,4 +73,14 @@ if(FALSE)
   l <- Locator()
   l$start()
   l$plot()
+  l$remove(1)
+
+
+  library(png)
+  x <- readPNG("~/Desktop/Rlogo-2.png")
+  r <- as.raster(x)
+  m <- matrix( match(r, unique(r)), nrow(r), ncol(r))
+  image(1:550, 1:725, m, col=unique(r))
+  d <- Digitize(
+
 }
