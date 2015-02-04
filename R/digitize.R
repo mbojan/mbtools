@@ -35,16 +35,19 @@ Locator <- setRefClass("Locator",
                                       },
 
                                       plot = function(col="red", ...) {
+                                        'plot points'
                                         points(pts, col=col, ...)
                                       },
 
                                       identify = function() {
+                                        'identify points'
                                         .self$plot()
                                         i <- identify(pts, atpen=TRUE)
                                         i
                                       },
 
                                       remove = function(ind) {
+                                        'removing points'
                                         pts <<- lapply(pts, function(x) x[-ind])
                                       }
 
@@ -54,14 +57,20 @@ Locator <- setRefClass("Locator",
 
 # Image digitizer
 Digitize <- setRefClass("Digitize", contain="Locator",
-                        fields=list( image="numeric",
+                        fields=list( image="ANY",
                                     xpts = "numeric",
                                     ypts = "numeric",
                                     xinterval = "numeric",
                                     yinterval = "numeric" ),
                         methods = list(
-                                       initialize = function(image)
+                                       initialize = function(image) {
                                          image <<- image
+                                       },
+
+                                       plot = function() {
+                                         plot.raster(image)
+                                       }
+
                                        )
                         )
 
@@ -79,8 +88,9 @@ if(FALSE)
   library(png)
   x <- readPNG("~/Desktop/Rlogo-2.png")
   r <- as.raster(x)
-  m <- matrix( match(r, unique(r)), nrow(r), ncol(r))
-  image(1:550, 1:725, m, col=unique(r))
-  d <- Digitize(
+  plot(r)
 
+  d <- Digitize(r)
+  d$plot()
+  d$start()
 }
