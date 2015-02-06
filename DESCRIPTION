@@ -1,6 +1,7 @@
 Package: mbtools
 Type: Package
-Title: Chaotic Collection of Functions and Datasets Possibly Useful Also To Others
+Title: Chaotic Collection of Functions and Datasets Possibly Useful Also To
+    Others
 Version: 0.3-0
 Date: 2013-06-26
 Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
@@ -19,3 +20,33 @@ Description: Various utility functions for some common tasks: data
     I wrote.
 License: GPL-2
 LazyLoad: yes
+Collate:
+    'Cbind.R'
+    'Locator.R'
+    'Digitize.R'
+    'Inflacja.R'
+    'andrews.R'
+    'anova.princomp.R'
+    'attributize.R'
+    'carryover.R'
+    'cw.R'
+    'dePolish.R'
+    'devlib.R'
+    'etas.R'
+    'grepex.R'
+    'hellwig.R'
+    'iCurveFit.R'
+    'is.symmetric.R'
+    'isGraphical.R'
+    'lss.R'
+    'mbrepo.R'
+    'mbtools-package.R'
+    'nullModel.R'
+    'recode.R'
+    'rescale.R'
+    'see.R'
+    'setcompare.R'
+    'show.keywords.R'
+    'sourceall.R'
+    'speedcomp.R'
+    'wcalc.R'
