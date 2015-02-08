@@ -1,8 +1,12 @@
 #' Digitizing images
 #'
-#' @field image
-#' @field xpts,ypts
-#' @field xinterval,yinterval
+#' @field image object of class "raster", image to be digitized
+#' @field xpts,ypts, numeric vectors of length specifying, some well defined
+#' length on, respectively, 'x' and 'y' axes.
+#' @field xinterval,yinterval numeric scalars, lengths of the intervals marked
+#' with \code{xpts} and \code{ypts} points
+#'
+#' @seealso \code{\link{Locator}}, \code{\link{as.raster}}
 #' 
 #' @include Locator.R
 #' @export Digitize
@@ -40,6 +44,15 @@ Digitize <- setRefClass("Digitize", contain="Locator",
                                          'start digitizing'
                                          .self$plot()
                                          callSuper(append=append, ...)
+                                       },
+
+                                       markx = function( col="blue", pch=4 ) {
+                                       },
+
+                                       marky = function( col="blue", pch=4 ) {
+                                       },
+
+                                       transform = function() {
                                        }
 
                                        )
