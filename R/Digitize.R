@@ -13,15 +13,16 @@
 #' @exportClass Digitize
 Digitize <- setRefClass("Digitize", contain="Locator",
                         fields=list( image="ANY",
-                                    xpts = "numeric",
-                                    ypts = "numeric",
-                                    xinterval = "numeric",
-                                    yinterval = "numeric" ),
+                                    xmarks = "list",
+                                    ymarks = "list",
+                                    xcoords = "numeric",
+                                    ycoords = "numeric" ),
                         methods = list(
                                        initialize = function(image) {
                                          'initialize'
                                          stopifnot(inherits(image, "raster"))
                                          image <<- image
+                                         xmarks <<- ymarks <<- list(x=NULL, y=NULL)
                                          callSuper()
                                        },
 
@@ -29,14 +30,43 @@ Digitize <- setRefClass("Digitize", contain="Locator",
                                          'show'
                                          cat("Object of class", class(.self), "\n")
                                          cat("Image:", paste(dim(image), collapse=" x "), "\n")
+                                         cat("X-calibration points: ")
+                                         if( length(xmarks$x) > 0 ) {
+                                           cat("\n")
+                                           print( do.call("cbind", xmarks) )
+                                         } else {
+                                           cat("none\n")
+                                         }
+                                         cat("X coordinates:", ifelse(length(xcoords) > 0, paste(xcoords, collapse=", "), "none"), "\n")
+                                         cat("Y-calibration points: ")
+                                         if( length(ymarks$y) > 0 ) {
+                                           cat("\n")
+                                           print( do.call("cbind", ymarks) )
+                                         } else {
+                                           cat("none\n")
+                                         }
+                                         cat("Y coordinates:", ifelse(length(ycoords) > 0, paste(ycoords, collapse=", "), "none"), "\n")
+                                         cat("Data points:\n")
                                          callSuper()
                                        },
 
-                                       plot = function(points=TRUE, ...) {
+                                       plot = function(points=TRUE, xpoints=TRUE, ypoints=TRUE, ...) {
                                          'plot'
+                                         # plot the image
                                          plot.raster(image)
+                                         # plot data points
                                          if(points && length(pts$x) != 0) {
                                            callSuper(...)
+                                         }
+                                         if(xpoints && length(xmarks$x) != 0) {
+                                           points(xmarks, col="blue", pch=4)
+                                           if(length(xcoords) > 0)
+                                             text(xmarks, label=xcoords, col="blue", pos=1)
+                                         }
+                                         if(ypoints && length(ymarks$y) != 0) {
+                                           points(ymarks, col="blue", pch=4)
+                                           if(length(ycoords)>0)
+                                             text(ymarks, label=ycoords, col="blue", pos=2)
                                          }
                                        },
 
@@ -46,13 +76,26 @@ Digitize <- setRefClass("Digitize", contain="Locator",
                                          callSuper(append=append, ...)
                                        },
 
-                                       markx = function( col="blue", pch=4 ) {
+                                       markx = function( col="blue", pch=4, ... ) {
+                                         'mark points on X axis'
+                                         .self$plot()
+                                         xmarks <<- locator(n=2, type="p", col=col, pch=pch, ...)
                                        },
 
-                                       marky = function( col="blue", pch=4 ) {
+                                       marky = function( col="blue", pch=4, ... ) {
+                                         'mark points on Y axis'
+                                         .self$plot()
+                                         ymarks <<- locator(n=2, type="p", col=col, pch=pch, ...)
                                        },
 
                                        transform = function() {
+                                         'transform data points'
+                                         # TODO check data availability
+                                         d <- data.frame(xcoords, ycoords, xmarks=xmarks$x, ymarks=ymarks$y)
+                                         xmod <- lm( xcoords ~ xmarks, data=d)
+                                         ymod <- lm( ycoords ~ ymarks, data=d)
+                                         list( x = predict(xmod, data.frame(xmarks=pts$x)),
+                                              y = predict(ymod, data.frame(ymarks=pts$y)) )
                                        }
 
                                        )
@@ -70,6 +113,13 @@ plot.raster <- function(r, type="n", asp=1, ann=FALSE, ...)
   rasterImage(r, 1, 1, ncol(r), nrow(r))
 }
 
+# Paste point coordinatess for pretty printing
+paste_points <- function(l)
+{
+  m <- do.call("cbind", l)
+  paste(apply(m, 1, function(r) paste0("(", r[1], ", ", r[2], ")")), collapse=", ")
+}
+
 
 if(FALSE)
 {
@@ -80,7 +130,6 @@ if(FALSE)
   plot(r)
 
   d <- Digitize(r)
-  d$start()
   # some points
   d$pts <- structure(list(x = c(481.531024517023, 540.430742094776,
                                 481.531024517023, 311.097799185654,
@@ -89,9 +138,10 @@ if(FALSE)
   c(535.765173351815, 414.42520696526, 164.239709261024, 538.267028328857,
     373.144599844061, 176.748984146236, 266.815763319761, 471.967871437235)),
                      .Names = c("x", "y"))
-  d$plot(path=TRUE)
-  d$trace(reorder, browser)
-  d$start()
+  d$markx()
+  d$marky()
+  d$xcoords <- c(1,10)
+  d$ycoords <- c(2,5)
 
   # reordering
   d$reorder(1,8,2,7,3)
