@@ -11,19 +11,30 @@ Digitizing images
 \section{Fields}{
 
 \describe{
-\item{\code{image}}{}
+\item{\code{image}}{object of class "raster", image to be digitized}
 
-\item{\code{xpts,ypts}}{}
+\item{\code{xpts,ypts,}}{numeric vectors of length specifying, some well defined
+length on, respectively, 'x' and 'y' axes.}
 
-\item{\code{xinterval,yinterval}}{}
+\item{\code{xinterval,yinterval}}{numeric scalars, lengths of the intervals marked
+with \code{xpts} and \code{ypts} points}
 }}
 \section{Methods}{
 
 \describe{
 \item{\code{initialize()}}{initialize object}
 
+\item{\code{markx(col = "blue", pch = 4, ...)}}{mark points on X axis}
+
+\item{\code{marky(col = "blue", pch = 4, ...)}}{mark points on Y axis}
+
 \item{\code{plot(path = FALSE, col = "red", labels = TRUE, pos = 1, ...)}}{plot points}
 
 \item{\code{start(..., append = TRUE, ask = FALSE, col = "red", type = "p")}}{Starts adding points}
+
+\item{\code{transform()}}{transform data points}
 }}
+\seealso{
+\code{\link{Locator}}, \code{\link{as.raster}}
+}
 
