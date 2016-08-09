@@ -1,3 +1,5 @@
 dev/
 examples
 TODO
+^.*\.Rproj$
+^\.Rproj\.user$
