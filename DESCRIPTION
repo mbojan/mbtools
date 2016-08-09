@@ -51,3 +51,4 @@ Collate:
     'sourceall.R'
     'speedcomp.R'
     'wcalc.R'
+RoxygenNote: 5.0.1
