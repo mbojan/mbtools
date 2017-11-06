@@ -60,4 +60,3 @@ P. Erdos, T. Gallai (1960) Graphs with prescribed degree of vertices
 A. Tripathi and Sujith Vijay (2003) A note on a theorem of Erdos and Gallai,
 Discrete Mathematics 265 417--420
 }
-

@@ -77,4 +77,3 @@ fitting functions, \code{\link{lm}} and \code{\link{glm}} for help with th
 model-fitting functions supported. Also see \code{\link{predict}} and
 \code{\link{I}}
 }
-

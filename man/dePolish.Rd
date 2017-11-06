@@ -38,4 +38,3 @@ dePolish("dupa")
 \seealso{
 \code{\link{sub}}, \code{\link{iconv}}
 }
-

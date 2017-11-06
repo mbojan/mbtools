@@ -51,4 +51,3 @@ hellwig(y, x)
 \references{
 TODO Add references
 }
-

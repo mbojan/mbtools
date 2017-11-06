@@ -2,8 +2,8 @@
 % Please edit documentation in R/Digitize.R
 \docType{class}
 \name{Digitize-class}
-\alias{Digitize}
 \alias{Digitize-class}
+\alias{Digitize}
 \title{Digitizing images}
 \description{
 Digitizing images
@@ -19,6 +19,7 @@ length on, respectively, 'x' and 'y' axes.}
 \item{\code{xinterval,yinterval}}{numeric scalars, lengths of the intervals marked
 with \code{xpts} and \code{ypts} points}
 }}
+
 \section{Methods}{
 
 \describe{
@@ -34,7 +35,7 @@ with \code{xpts} and \code{ypts} points}
 
 \item{\code{transform()}}{transform data points}
 }}
+
 \seealso{
 \code{\link{Locator}}, \code{\link{as.raster}}
 }
-

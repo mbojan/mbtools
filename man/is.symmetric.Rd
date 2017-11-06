@@ -46,4 +46,3 @@ See \code{\link{identical}}, \code{\link{matrix}},
 \code{\link{upper.tri}}. Also \code{\link[sna]{symmetrize}} in package
 \pkg{sna}.
 }
-

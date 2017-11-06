@@ -12,4 +12,3 @@ ruler(width = 80)
 \description{
 Measuring number of columns of textual output
 }
-

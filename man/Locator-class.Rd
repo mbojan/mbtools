@@ -2,8 +2,8 @@
 % Please edit documentation in R/Locator.R
 \docType{class}
 \name{Locator-class}
-\alias{Locator}
 \alias{Locator-class}
+\alias{Locator}
 \title{Reference-class implementation of locator()}
 \description{
 Reference-class implementation of locator()
@@ -13,6 +13,7 @@ Reference-class implementation of locator()
 \describe{
 \item{\code{pts}}{a list of components 'x' and 'y' containg the coordinates of the points}
 }}
+
 \section{Methods}{
 
 \describe{

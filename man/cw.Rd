@@ -20,4 +20,3 @@ current width of the terminal using the \code{COLUMNS} environment variable.
 \seealso{
 \code{\link{options}}
 }
-

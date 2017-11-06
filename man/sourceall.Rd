@@ -28,4 +28,3 @@ All files in the \code{dir} directory are sourced in alphabetical order via
 }
 \keyword{file}
 \keyword{programming}
-

@@ -49,4 +49,3 @@ speedcomp(e1, e2)
 \code{\link{system.time}}
 }
 \keyword{programming}
-

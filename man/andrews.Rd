@@ -2,8 +2,8 @@
 % Please edit documentation in R/andrews.R
 \name{andrews}
 \alias{andrews}
-\alias{andrews.data.frame}
 \alias{andrews.matrix}
+\alias{andrews.data.frame}
 \alias{andrews.vector}
 \title{Andrew's plots}
 \usage{
@@ -21,6 +21,9 @@ andrews(x, ...)
 \item{x}{numeric matrix, vector or data frame that contains only numeric
 variables}
 
+\item{\dots}{other arguments passed to other methods, \code{\link{matplot}}
+in the end}
+
 \item{draw}{logical, whether the plot should be produced}
 
 \item{res}{numeric, number of points on which transformed variables are
@@ -31,9 +34,6 @@ are evaluated}
 
 \item{main, xlab, ylab, pch, lty, col}{arguments passed to \code{\link{matplot}},
 see \code{\link{par}}}
-
-\item{\dots}{other arguments passed to other methods, \code{\link{matplot}}
-in the end}
 }
 \value{
 Depending on the value of the \code{draw} argument the plot is
@@ -101,4 +101,3 @@ and Sons
 \seealso{
 Package \pkg{cluster}
 }
-

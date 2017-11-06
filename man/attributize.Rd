@@ -2,6 +2,8 @@
 % Please edit documentation in R/attributize.R
 \name{attributize}
 \alias{attributize}
+\alias{attributize.default}
+\alias{attributize.data.frame}
 \alias{attributize.data.frame}
 \alias{attributize.default}
 \title{Map a vector to several plotting attributes}
@@ -15,11 +17,11 @@ attributize(x, ...)
 \arguments{
 \item{x, vec}{input vector}
 
+\item{\dots}{other arguments passed to/from other methods}
+
 \item{vcol}{numeric vector, column id with input vector values}
 
 \item{na.last}{logical, passed to \code{sort}}
-
-\item{\dots}{other arguments passed to/from other methods}
 }
 \value{
 data frame
@@ -28,4 +30,3 @@ data frame
 Given a vector with likely high number of unique values create a list of
 vectors which combinations cover the unique values of the input vector.
 }
-

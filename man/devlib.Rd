@@ -7,9 +7,9 @@
 devlib(..., libloc = getOption("devlib"))
 }
 \arguments{
-\item{libloc}{Path to developer's library}
-
 \item{\dots}{other arguments passed to \code{\link{library}}}
+
+\item{libloc}{Path to developer's library}
 }
 \value{
 Nothing of interest, but the package is loaded.
@@ -20,4 +20,3 @@ Load package from developer's library.
 \seealso{
 \code{\link{library}}, \code{\link{.libPaths}}
 }
-

@@ -44,4 +44,3 @@ data.frame(x, r)
 \seealso{
 \code{\link{match}}
 }
-

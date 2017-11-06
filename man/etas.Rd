@@ -2,8 +2,8 @@
 % Please edit documentation in R/etas.R
 \name{etas}
 \alias{etas}
-\alias{etas.anova}
 \alias{etas.default}
+\alias{etas.anova}
 \alias{etas.lm}
 \title{Calculate Eta coefficients}
 \usage{
@@ -79,4 +79,3 @@ etas( y, rep(1:2, each=25) )
 m <- lm( y ~ x1 + x2 )
 etas(m)
 }
-

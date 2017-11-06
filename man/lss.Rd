@@ -55,4 +55,3 @@ calculating the memory size of an object, \code{dotchart} for making
 dotcharts
 }
 \keyword{environment}
-

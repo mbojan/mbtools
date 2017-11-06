@@ -61,4 +61,3 @@ text( (max(x) + min(x))/2, (max(y) + min(y))/2,
 \code{\link{scale}}
 }
 \keyword{arith}
-

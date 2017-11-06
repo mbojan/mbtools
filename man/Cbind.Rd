@@ -48,4 +48,3 @@ do.call("Cbind", l)
 \seealso{
 \code{\link{cbind}}, \code{\link{rownames}}
 }
-

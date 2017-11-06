@@ -44,4 +44,3 @@ grepex(re, x)
 \seealso{
 \code{\link{regexpr}}
 }
-

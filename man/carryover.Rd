@@ -40,4 +40,3 @@ carryover(x)
 vectors
 }
 \keyword{manip}
-

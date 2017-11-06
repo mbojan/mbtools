@@ -47,4 +47,3 @@ legend( 1995, 1200,
 
 }
 \keyword{datasets}
-

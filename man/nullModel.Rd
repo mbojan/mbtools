@@ -74,4 +74,3 @@ Introduction to Basic and Advanced Multilevel Modelling". London: Sage
 \code{\link[lme4]{lmer}} in package \pkg{lme4} for general fitting
 of mixed-effects models.
 }
-

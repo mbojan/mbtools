@@ -34,4 +34,3 @@ anova(pcmodel) # variance prc.
 \seealso{
 \code{\link[stats]{princomp}}, \code{\link[stats]{anova}}
 }
-

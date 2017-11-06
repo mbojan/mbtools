@@ -2,8 +2,8 @@
 % Please edit documentation in R/mbtools-package.R
 \docType{package}
 \name{mbtools-package}
-\alias{mbtools}
 \alias{mbtools-package}
+\alias{mbtools}
 \title{Collection of development tools for R}
 \description{
 Various utility functions for some common tasks: data manipulation,
@@ -20,4 +20,3 @@ Michal Bojanowski\cr \email{michal2992@gmail.com}\cr
 \url{http://www.bojanorama.pl}
 }
 \keyword{package}
-
