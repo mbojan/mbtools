@@ -42,7 +42,6 @@ Collate:
     'mbrepo.R'
     'mbtools-package.R'
     'nullModel.R'
-    'recode.R'
     'rescale.R'
     'ruler.R'
     'see.R'
