@@ -69,7 +69,7 @@ andrews.matrix <- function(x, draw=TRUE, res=20, w=seq(-pi, pi, length=res),
        function(i) do.call(wf[i], list(x=m[,i]) ) )  )
    rval <- mm %*% t(x)
    if(draw)
-	matplot( w, rval, type="l", main=main, xlab=xlab, ylab=ylab, pch=pch,
+	graphics::matplot( w, rval, type="l", main=main, xlab=xlab, ylab=ylab, pch=pch,
 	    lty=lty, col=col, ... )
    invisible(rval)
 }
