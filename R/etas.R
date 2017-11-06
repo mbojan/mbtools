@@ -48,7 +48,7 @@ etas.default <- function( object, fac, ... ) {
 	n <- length(object)
 	if( length(fac) != n )
 		stop("arguments must be of the same length")
-	( var(object) - mean(tapply(object,fac,var)) ) / var(object)
+	( stats::var(object) - mean(tapply(object, fac, FUN=stats::var)) ) / stats::var(object)
 }
 
 
@@ -87,4 +87,4 @@ etas.anova <- function( object, ... ) {
 #' @method etas lm
 #' @export
 #' @rdname etas
-etas.lm <- function( object, ... ) etas( anova(object) )
+etas.lm <- function( object, ... ) etas( stats::anova(object) )
