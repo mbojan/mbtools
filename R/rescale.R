@@ -32,7 +32,7 @@ rescale <- function (x, nmin = 0, nmax = 1, na.rm = TRUE,
 {
   rval <- scales::rescale(x=x, to=to, from=from)
   if (coef) {
-      return(coef(lm(rval ~ x)))
+      return(stats::coef(stats::lm(rval ~ x)))
   } else
   {
     rval
