@@ -46,11 +46,11 @@ function (graph = FALSE, env = .GlobalEnv, ...)
     nam <- ls(envir = env, ...)
     cls <- sapply(nam, function(x) class(get(x, envir = env)))
     cls <- sapply(cls, paste, collapse = ", ")
-    s <- sapply(ls(envir = env), function(x) object.size(get(x, 
+    s <- sapply(ls(envir = env), function(x) utils::object.size(get(x, 
         envir = env)))
     rval <- data.frame(class = cls, size = s)
     if (graph) 
-        dotchart(sort(s), main = paste("Objects in environment:", 
+        graphics::dotchart(sort(s), main = paste("Objects in environment:", 
             enam), xlab = "Size [bytes]")
     return(rval)
 }
