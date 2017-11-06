@@ -42,6 +42,7 @@ Collate:
     'mbrepo.R'
     'mbtools-package.R'
     'nullModel.R'
+    'read_yaml.R'
     'rescale.R'
     'ruler.R'
     'see.R'
