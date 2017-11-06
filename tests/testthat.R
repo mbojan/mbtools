@@ -1,4 +1,4 @@
 library(testthat)
 library(mbtools)
 
-test_package("mbtools")
+test_check("mbtools")
