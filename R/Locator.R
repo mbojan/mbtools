@@ -96,6 +96,6 @@ isok <- function() {
 # Draw a path with arrows
 path <- function(pts, ...) {
   n <- length(pts$x)
-  arrows(pts$x[-n], pts$y[-n], pts$x[-1], pts$y[-1], ...)
+  graphics::arrows(pts$x[-n], pts$y[-n], pts$x[-1], pts$y[-1], ...)
 }
 
