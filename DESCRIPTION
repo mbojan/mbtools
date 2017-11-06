@@ -20,7 +20,7 @@ Description: Various utility functions for some common tasks: data
     I wrote.
 License: GPL-2
 LazyLoad: yes
-Collate:
+Collate: 
     'Cbind.R'
     'Locator.R'
     'Digitize.R'
@@ -50,5 +50,6 @@ Collate:
     'show.keywords.R'
     'sourceall.R'
     'speedcomp.R'
+    'srcenv.R'
     'wcalc.R'
 RoxygenNote: 6.0.1
