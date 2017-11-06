@@ -37,7 +37,7 @@
 #' @example examples/hellwig.R
 hellwig <- function( y, x, method="pearson")
 {
-  require(utils)
+  requireNamespace(utils)
   x <- as.data.frame(x)
   cm <- cor(x, method=method) # correlation matrix among indeps
   cd <- cor(x, y, method=method) # correlations with dependent
