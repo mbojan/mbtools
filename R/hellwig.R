@@ -39,11 +39,11 @@ hellwig <- function( y, x, method="pearson")
 {
   requireNamespace(utils)
   x <- as.data.frame(x)
-  cm <- cor(x, method=method) # correlation matrix among indeps
-  cd <- cor(x, y, method=method) # correlations with dependent
+  cm <- stats::cor(x, method=method) # correlation matrix among indeps
+  cd <- stats::cor(x, y, method=method) # correlations with dependent
   # list of combination vectors
   k <- sapply( seq(2, length(x)), function(i)
-              combn(length(x), i, simplify=FALSE) )
+              utils::combn(length(x), i, simplify=FALSE) )
   k <- do.call("c", k)
   # function calculating individual capacities
   hfun <- function(v)
