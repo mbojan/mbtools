@@ -71,9 +71,9 @@ iCurveFit <- function(formula=y ~ x, n=5, model="lm",
   # for every point plot it and add to data list 'd'
   for( i in 1:n )
   {
-    p <- locator(1)
-    points(p)
-    text(p, labels=i, pos=1)
+    p <- graphics::locator(1)
+    graphics::points(p)
+    graphics::text(p, labels=i, pos=1)
     d$x <- c(d$x, p$x)
     d$y <- c(d$y, p$y)
   }
@@ -82,9 +82,9 @@ iCurveFit <- function(formula=y ~ x, n=5, model="lm",
   # construct the 'x' values for plotting the fitted curve
   ox <- seq(min(xlim), max(xlim), length=prn)
   # get the fitted 'y' data
-  pr <- predict(m, data.frame(x=ox), type="response" )
+  pr <- stats::predict(m, data.frame(x=ox), type="response" )
   # plot the fitted curve
-  lines(ox, pr)
+  graphics::lines(ox, pr)
   # return the model object
   m
 }
