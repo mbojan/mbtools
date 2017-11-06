@@ -2,7 +2,7 @@
 {
     a <- match.arg(enc)
     fname <- system.file("extdata", paste("letterspl", enc, "txt", sep="."), package="mbtools")
-    rval <- read.table(fname, header=FALSE, as.is=TRUE)
+    rval <- utils::read.table(fname, header=FALSE, as.is=TRUE)
     names(rval) <- c("ascii", "nat")
     rval
 }
