@@ -30,7 +30,7 @@ function(o, ... )
 setMethod("see", "data.frame",
 function(o, ...)
 {
-    edit(o, ...)
+    utils::edit(o, ...)
     return(NULL)
 } )
 
