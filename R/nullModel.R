@@ -75,11 +75,11 @@ nullModel <- function( y, g, data=NULL)
     n <- length(unique(g)) # number of groups
     gsizes <- tapply(y, g, length) # group sizes
     gmeans <- tapply(y, g, mean) # group means
-    gvars <- tapply(y, g, var) # within-group variances
+    gvars <- tapply(y, g, stats::var) # within-group variances
     # pooled within-group variance
     WGvar <- 1 / (m-n) * sum( (gsizes-1) * gvars )
     # average weighted group size as in (3.7), p. 19 of S&B (1999)
-    ntilde <- m/n - var(gsizes) / m
+    ntilde <- m/n - stats::var(gsizes) / m
     # between-group variance
     BGvar <- 1 / (ntilde * (n-1)) * sum( gsizes * (gmeans - mean(y))^2 )
     # population BG variance
