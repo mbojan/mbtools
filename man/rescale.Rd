@@ -4,8 +4,8 @@
 \alias{rescale}
 \title{Rescale linearly to new minimum and maximum}
 \usage{
-rescale(x, nmin = 0, nmax = 1, na.rm = TRUE, from = range(x, na.rm =
-  na.rm), to = c(nmin, nmax), coef = FALSE)
+rescale(x, nmin = 0, nmax = 1, na.rm = TRUE, from = range(x, na.rm
+  = na.rm), to = c(nmin, nmax), coef = FALSE)
 }
 \arguments{
 \item{x}{numeric vector to rescale}

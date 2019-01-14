@@ -4,8 +4,6 @@
 \alias{setcompare}
 \alias{setcompare.default}
 \alias{setcompare.data.frame}
-\alias{setcompare.default}
-\alias{setcompare.data.frame}
 \title{Compare to sets}
 \usage{
 setcompare(x, y)

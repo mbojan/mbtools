@@ -9,9 +9,9 @@
 \usage{
 andrews(x, ...)
 
-\method{andrews}{matrix}(x, draw = TRUE, res = 20, w = seq(-pi, pi, length
-  = res), main = "Andrew's plot", xlab = "t", ylab = "f(t)", pch = 1,
-  lty = 1, col = 1, ...)
+\method{andrews}{matrix}(x, draw = TRUE, res = 20, w = seq(-pi, pi,
+  length = res), main = "Andrew's plot", xlab = "t", ylab = "f(t)",
+  pch = 1, lty = 1, col = 1, ...)
 
 \method{andrews}{data.frame}(x, ...)
 

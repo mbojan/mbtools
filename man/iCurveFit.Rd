@@ -4,8 +4,8 @@
 \alias{iCurveFit}
 \title{Interactive Curve Fitting}
 \usage{
-iCurveFit(formula = y ~ x, n = 5, model = "lm", prn = 100, xlim = c(0,
-  10), ylim = c(0, 10), ...)
+iCurveFit(formula = y ~ x, n = 5, model = "lm", prn = 100,
+  xlim = c(0, 10), ylim = c(0, 10), ...)
 }
 \arguments{
 \item{formula}{formula for the model to be fitted to the entered data}

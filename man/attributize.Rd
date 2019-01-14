@@ -4,8 +4,6 @@
 \alias{attributize}
 \alias{attributize.default}
 \alias{attributize.data.frame}
-\alias{attributize.data.frame}
-\alias{attributize.default}
 \title{Map a vector to several plotting attributes}
 \usage{
 attributize(x, ...)
