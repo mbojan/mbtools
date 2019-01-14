@@ -20,6 +20,7 @@ Description: Various utility functions for some common tasks: data
     I wrote.
 License: GPL-2
 LazyLoad: yes
+Encoding: UTF-8
 Collate: 
     'Cbind.R'
     'Locator.R'
