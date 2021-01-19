@@ -11,10 +11,10 @@ NULL
 #' 
 #' @description - `git_log()` - a low-level interface
 #' 
-#' @param dir directory with git repo
+#' @param dir directory with git repo, defaults to current directory
 #' @param format_log character vector of `git log` format options
-#' @param delim,... passed to [readr::read_delim()] usually `col_names` or `col_types`
-#'   need to be specified too
+#' @param delim,... passed to [readr::read_delim()] usually `col_names` or
+#'   `col_types` need to be specified too
 #'   
 #' @details Function `git_log()` runs `git log` in `dir` passing `format_log`
 #'   collapsed with white spaces to the `--format` option. The command is run
@@ -45,7 +45,8 @@ git_log <- function(dir = ".", format_log, delim = " ", ...) {
 #'   of more than one commit (i.e., when the history "forks") and a commit can
 #'   have multiple parents (i.e. in case of merge commits).
 #'   
-#' @return Function `git_commit_edgelist()` returns a two-column tibble with columns:
+#' @return Function `git_commit_edgelist()` returns a two-column tibble with
+#'   columns:
 #' - `.commit` - hash of a commit
 #' - `.parent` - hash of a parent of the `.commit`
 #' 
@@ -70,11 +71,13 @@ globalVariables(".parent")
 
 #' @rdname git
 #' 
-#' @description - `git_commits` - assemble a database of git commits with hash and author date time
+#' @description - `git_commits()` - assemble a database of git commits with hash
+#'   and author date time
 #' 
-#' @param col_types passed to [readr::read_delim()]
+#' @param col_types passed to [readr::read_delim()], defaults to `"ciT"`
 #' 
-#' @details For `git_commits()` if `col_types` is missing (default) it is assumed to be `"ciT"`
+#' @details For `git_commits()` if `col_types` is missing (default) it is
+#'   assumed to be `"ciT"`
 #' 
 #' @return Function `git_commits()` returns a tibble with columns:
 #' - `.commit` - commit hash
@@ -93,6 +96,15 @@ git_commits <- function(dir = ".", col_types) {
 }
 
 #' @rdname git
+#' 
+#' @description - `git_refs()` - fetch information about Git refs
+#' 
+#' @return Function `git_refs()` returns a tibble with a row for each ref and
+#'   the following columns:
+#'   - `.commit` - commit hash
+#'   - `ref` - full name of the ref, e.g. `refs/heads/master` or
+#'     `refs/remotes/origin/HEAD`
+#' 
 #' @export
 git_refs <- function(dir = ".") {
   withr::with_dir(dir, {
@@ -107,6 +119,18 @@ git_refs <- function(dir = ".") {
 }
 
 #' @rdname git
+#' 
+#' @description - `git_commit_graph()` - create an igraph object with the
+#'   complete history of the repository. 
+#'   
+#' @return The igraph object returned by `git_commit_graph()` has vertices
+#'   correspond to commits and edges point from commits to their parents. It has
+#'   additionally the following attributes defined:
+#'   - `refs` - graph attribute holding a tibble as returned by [git_refs()]
+#'   - `name` - vertex attribute with commit hash
+#'   - `author_timestamp` - vertex attribute with author date timestamp
+#'   - `author_datetime` - vertex attribute with author date in ISO  8601 format
+#' 
 #' @export
 git_commit_graph <- function(dir = ".") {
   edb <- git_commit_edgelist(dir)
@@ -121,8 +145,13 @@ git_commit_graph <- function(dir = ".") {
 
 #' @rdname git
 #' 
+#' @description - `Vref()` - custom creation of vertex sequences
+#' 
 #' @param g a graph built with `git_commit_graph()`
 #' @param refs commit refs
+#' 
+#' @return Function `Vref()` works similarly to [igraph::V()] returning vertex
+#'   sequence for vertices in `g` corresponding to refs specifed by `refs`.
 #' 
 #' @export
 Vref <- function(g, refs) {

@@ -23,14 +23,14 @@ git_commit_graph(dir = ".")
 Vref(g, refs)
 }
 \arguments{
-\item{dir}{directory with git repo}
+\item{dir}{directory with git repo, defaults to current directory}
 
 \item{format_log}{character vector of \verb{git log} format options}
 
-\item{delim, ...}{passed to \code{\link[readr:read_delim]{readr::read_delim()}} usually \code{col_names} or \code{col_types}
-need to be specified too}
+\item{delim, ...}{passed to \code{\link[readr:read_delim]{readr::read_delim()}} usually \code{col_names} or
+\code{col_types} need to be specified too}
 
-\item{col_types}{passed to \code{\link[readr:read_delim]{readr::read_delim()}}}
+\item{col_types}{passed to \code{\link[readr:read_delim]{readr::read_delim()}}, defaults to \code{"ciT"}}
 
 \item{g}{a graph built with \code{git_commit_graph()}}
 
@@ -41,7 +41,8 @@ Function \code{git_log()} returns a tibble with as many columns as there
 are fields requested with \code{format_log} and parsed by \code{\link[readr:read_delim]{readr::read_delim()}}
 using \code{delim}.
 
-Function \code{git_commit_edgelist()} returns a two-column tibble with columns:
+Function \code{git_commit_edgelist()} returns a two-column tibble with
+columns:
 \itemize{
 \item \code{.commit} - hash of a commit
 \item \code{.parent} - hash of a parent of the \code{.commit}
@@ -53,6 +54,27 @@ Function \code{git_commits()} returns a tibble with columns:
 \item \code{author_timestamp} - Linux timestamp of author date
 \item \code{author_datetime} - author date in strict ISO 8601 format
 }
+
+Function \code{git_refs()} returns a tibble with a row for each ref and
+the following columns:
+\itemize{
+\item \code{.commit} - commit hash
+\item \code{ref} - full name of the ref, e.g. \code{refs/heads/master} or
+\code{refs/remotes/origin/HEAD}
+}
+
+The igraph object returned by \code{git_commit_graph()} has vertices
+correspond to commits and edges point from commits to their parents. It has
+additionally the following attributes defined:
+\itemize{
+\item \code{refs} - graph attribute holding a tibble as returned by \code{\link[=git_refs]{git_refs()}}
+\item \code{name} - vertex attribute with commit hash
+\item \code{author_timestamp} - vertex attribute with author date timestamp
+\item \code{author_datetime} - vertex attribute with author date in ISO  8601 format
+}
+
+Function \code{Vref()} works similarly to \code{\link[igraph:V]{igraph::V()}} returning vertex
+sequence for vertices in \code{g} corresponding to refs specifed by \code{refs}.
 }
 \description{
 Various tools for querying Git history as a Directed Acyclic
@@ -68,7 +90,21 @@ graph in which a directed edge connects a commit to its parent.
 }
 
 \itemize{
-\item \code{git_commits} - assemble a database of git commits with hash and author date time
+\item \code{git_commits()} - assemble a database of git commits with hash
+and author date time
+}
+
+\itemize{
+\item \code{git_refs()} - fetch information about Git refs
+}
+
+\itemize{
+\item \code{git_commit_graph()} - create an igraph object with the
+complete history of the repository.
+}
+
+\itemize{
+\item \code{Vref()} - custom creation of vertex sequences
 }
 }
 \details{
@@ -80,5 +116,6 @@ Do note, wrt \code{git_commit_edgelist()}, that a commit can be a parent
 of more than one commit (i.e., when the history "forks") and a commit can
 have multiple parents (i.e. in case of merge commits).
 
-For \code{git_commits()} if \code{col_types} is missing (default) it is assumed to be \code{"ciT"}
+For \code{git_commits()} if \code{col_types} is missing (default) it is
+assumed to be \code{"ciT"}
 }
