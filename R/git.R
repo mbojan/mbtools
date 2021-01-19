@@ -137,7 +137,7 @@ Vref <- function(g, refs) {
 
 if(FALSE) {
   g <- git_commit_graph()
-  dir <- "F:/michal/Documents/R/network"
+  dir <- "../network"
   g <- git_commit_graph(dir)
   xy <- layout_with_sugiyama(g, layers = order(V(g)$author_timestamp))
   xy <- graphlayouts::layout_with_stress(g)
@@ -177,3 +177,43 @@ if(FALSE) {
 # Drawing commit histories ------------------------------------------------
 
 # https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html
+
+if(FALSE) {
+  library(igraph)
+  dir <- "../network"
+  g <- git_commit_graph(dir)
+  oy <- order(V(g)$author_timestamp)
+  ox <- runif(vcount(g))
+  xy <- cbind(ox, oy)
+  plot(
+    g, 
+    layout = xy,
+    vertex.label=NA,
+    vertex.size = 3,
+    edge.arrow.size = .5
+  )
+  
+  k <- clusters(g)
+  s <- induced_subgraph(g, V(g)[k$membership == which.max(k$csize)])
+  deg <- degree(s, mode = "out")
+  table(deg)
+  edb <- as_edgelist(s, names = FALSE)
+  tsort <- pooh::tsort(
+    edb[,1],
+    edb[,2], 
+    domain = as.integer(V(s))[order(V(s)$author_timestamp, decreasing = TRUE)]
+  )
+  oy <- tsort
+  ox <- runif(vcount(s))
+  xy <- scale(cbind(ox, oy))
+  plot(
+    s, 
+    layout = xy,
+    vertex.label=NA,
+    vertex.size = 3,
+    edge.arrow.size = .5,
+    rescale = FALSE
+  )
+  
+  plot(tsort, order(V(s)$author_timestamp, decreasing = TRUE))
+}
