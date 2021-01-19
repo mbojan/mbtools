@@ -8,7 +8,7 @@ Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
     email="michal2992@gmail.com")
 Imports:
     scales, utils, graphics, stats, sna, lme4, yaml, dplyr, igraph, readr, tidyr, withr
-URL: http://www.bojanorama.pl
+URL: https://github.com/mbojan/mbtools
 Depends:
     methods
 Suggests:
