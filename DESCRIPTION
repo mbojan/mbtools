@@ -7,13 +7,14 @@ Date: 2013-06-26
 Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
     email="michal2992@gmail.com")
 Imports:
-    scales, utils, graphics, stats, sna, lme4, yaml, dplyr, igraph, readr, tidyr, withr
+    scales, utils, graphics, stats, sna, yaml, dplyr, igraph, readr, tidyr, withr
 URL: https://github.com/mbojan/mbtools
 Depends:
     methods
 Suggests:
     devtools,
-    testthat
+    testthat,
+    sna
 Description: Various utility functions for some common tasks: data
     manipulation, utilities helping in developing R packages. A lot of
     things are outdated. This package is a black hole of R routines
