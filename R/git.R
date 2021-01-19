@@ -49,7 +49,7 @@ git_log <- function(dir = ".", format_log, delim = " ", ...) {
 #' - `.commit` - hash of a commit
 #' - `.parent` - hash of a parent of the `.commit`
 #' 
-#' @importFrom %>% dplyr
+#' @importFrom magrittr %>%
 #' @export
 git_commit_edgelist <- function(dir = ".") {
   git_log(
