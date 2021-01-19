@@ -69,6 +69,8 @@ git_commit_edgelist <- function(dir = ".") {
 #' 
 #' @description - `git_commits` - assemble a database of git commits with hash and author date time
 #' 
+#' @param col_types passed to [readr::read_delim()]
+#' 
 #' @details For `git_commits()` if `col_types` is missing (default) it is assumed to be `"ciT"`
 #' 
 #' @return Function `git_commits()` returns a tibble with columns:

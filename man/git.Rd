@@ -30,6 +30,8 @@ Vref(g, refs)
 \item{delim, ...}{passed to \code{\link[readr:read_delim]{readr::read_delim()}} usually \code{col_names} or \code{col_types}
 need to be specified too}
 
+\item{col_types}{passed to \code{\link[readr:read_delim]{readr::read_delim()}}}
+
 \item{g}{a graph built with \code{git_commit_graph()}}
 
 \item{refs}{commit refs}
