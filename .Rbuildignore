@@ -1,8 +1,5 @@
-dev/
-examples
-TODO
+^examples$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yml$
-^appveyor\.yml$
 ^\.github$
+^tests/testthat/try-.*\.R$
