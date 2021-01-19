@@ -13,7 +13,7 @@
 #' @param graph logical, should a dotchart of sizes by produced
 #' @param env environment to scan for objects, defaults to Global Environment
 #' @param ... other arguments passed to \code{ls}
-#' @return A data frame with two columns ``class'' and ``size'' containing the
+#' @return A data frame with two columns `class` and `size` containing the
 #' class and size (in bytes) of the objects found in the environment
 #' \code{env}.
 #' @seealso \code{ls} for listing the objects, \code{object.size} for

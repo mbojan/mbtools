@@ -1,8 +1,8 @@
 #' Calculate Eta coefficients
 #' 
 #' This generic function calculates Eta coefficients which are also known as
-#' ``Correlation ratios'' or (the squared value) as the ``Proportion of
-#' explained variance''.
+#' "Correlation ratios" or (the squared value) as the "Proportion of
+#' explained variance".
 #' 
 #' The Eta coefficient (more specifically its squared value) has a
 #' interpretation in terms of the proportion of explained variance.

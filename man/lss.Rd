@@ -14,7 +14,7 @@ lss(graph = FALSE, env = .GlobalEnv, ...)
 \item{...}{other arguments passed to \code{ls}}
 }
 \value{
-A data frame with two columns \verb{class'' and }size'' containing the
+A data frame with two columns \code{class} and \code{size} containing the
 class and size (in bytes) of the objects found in the environment
 \code{env}.
 }
