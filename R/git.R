@@ -132,13 +132,27 @@ Vref <- function(g, refs) {
 
 if(FALSE) {
   g <- git_commit_graph()
-  dir <- "F:/michal/Documents/R/ergm"
+  dir <- "F:/michal/Documents/R/network"
   g <- git_commit_graph(dir)
+  xy <- layout_with_sugiyama(g, layers = order(V(g)$author_timestamp))
+  xy <- graphlayouts::layout_with_stress(g)
+  xy <- cmdscale(distances(g, mode = "all")) %>% rescale()
+  
+  
+  plot(
+    g, 
+    # layout=xy$layout, 
+    layout = xy,
+    vertex.label=NA,
+    vertex.size = 3,
+    edge.arrow.size = .5
+  )
   
   library(igraph)
   sg <- make_ego_graph(g, order=5, nodes = Vref(g, "refs/remotes/origin/i172-predict-ergm"))[[1]]
   plot(
     sg, 
+    
     vertex.color = V(sg) == Vref(sg, "refs/remotes/origin/i172-predict-ergm"),
     vertex.label = NA,
     edge.arrow.size = 0.5
