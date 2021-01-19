@@ -22,7 +22,7 @@ looked for}
 \item{...}{other arguments passed to/from other methods}
 }
 \value{
-The function returns a list of S3 class \code{nullModel} which
+The function returns a list of S3 class "nullModel" which
 contains the following components:
 \describe{
 \item{yname}{character, name of the dependent variable}
@@ -71,6 +71,6 @@ Snijders, T.A.B., Bosker, R. (1999) "Multilevel Analysis. An
 Introduction to Basic and Advanced Multilevel Modelling". London: Sage
 }
 \seealso{
-\code{\link[lme4]{lmer}} in package \pkg{lme4} for general fitting
-of mixed-effects models.
+\code{lmer} in package \pkg{lme4} for general fitting of mixed-effects
+models.
 }
