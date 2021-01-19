@@ -1,6 +1,7 @@
 # Querying git history ----------------------------------------------------
 
 #' @name git
+#' @title Git querying
 #' 
 #' @description Various tools for querying Git history as a Directed Acyclic
 #'   Graph (DAG).

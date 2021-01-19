@@ -4,7 +4,8 @@
 \name{Inflacja}
 \alias{Inflacja}
 \title{Monthly inflation rates in Poland}
-\format{A data frame with 195 observations on the following 6 variables.
+\format{
+A data frame with 195 observations on the following 6 variables.
 \describe{
 \item{year}{Year}
 \item{month}{Month}
@@ -16,7 +17,8 @@ compared to the previous month}
 inflation as compared to December of the previous year}
 \item{infl4}{a time-series, average inflation of the previous 12
 months}
-}}
+}
+}
 \source{
 (Polish) Central Statistical Office, http://www.stat.gov.pl
 }

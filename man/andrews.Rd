@@ -9,9 +9,19 @@
 \usage{
 andrews(x, ...)
 
-\method{andrews}{matrix}(x, draw = TRUE, res = 20, w = seq(-pi, pi,
-  length = res), main = "Andrew's plot", xlab = "t", ylab = "f(t)",
-  pch = 1, lty = 1, col = 1, ...)
+\method{andrews}{matrix}(
+  x,
+  draw = TRUE,
+  res = 20,
+  w = seq(-pi, pi, length = res),
+  main = "Andrew's plot",
+  xlab = "t",
+  ylab = "f(t)",
+  pch = 1,
+  lty = 1,
+  col = 1,
+  ...
+)
 
 \method{andrews}{data.frame}(x, ...)
 
@@ -87,7 +97,7 @@ layout( matrix(1:4, ncol=2) )
 andrews(d, lty=1, col=1, main="Andrew's plot of Iris data")
 # colored with species
 andrews(d, lty=1, col=match( iris$Species, unique(iris$Species)),
-    main="Andrew's plot of Iris data\\n color-coded species")
+    main="Andrew's plot of Iris data\n color-coded species")
 # Andrew's plot on standardized data
 andrews( scale(d), main="Andrew's plot of standardized Iris data")
 # Andrew's plot on principal components

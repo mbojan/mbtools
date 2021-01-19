@@ -27,7 +27,7 @@ Values of eta and partial eta coefficients.
 }
 \description{
 This generic function calculates Eta coefficients which are also known as
-``Correlation ratios'' or (the squared value) as the ``Proportion of
+\verb{Correlation ratios'' or (the squared value) as the }Proportion of
 explained variance''.
 }
 \details{
