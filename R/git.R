@@ -132,7 +132,7 @@ Vref <- function(g, refs) {
   bad_ref <- is.na(mv)
   if(any(bad_ref))
     stop("can't find these refs: ", paste(dQuote(refs[bad_ref]), collapse=", ") )
-  V(g)[g$refs$.commit[mv]]
+  igraph::V(g)[g$refs$.commit[mv]]
 }
 
 if(FALSE) {
