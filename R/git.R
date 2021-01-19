@@ -49,6 +49,7 @@ git_log <- function(dir = ".", format_log, delim = " ", ...) {
 #' - `.commit` - hash of a commit
 #' - `.parent` - hash of a parent of the `.commit`
 #' 
+#' @importFrom %>% dplyr
 #' @export
 git_commit_edgelist <- function(dir = ".") {
   git_log(
@@ -64,6 +65,8 @@ git_commit_edgelist <- function(dir = ".") {
     ) %>%
     tidyr::unnest(".parent")
 }
+
+globalVariables(".parent")
 
 #' @rdname git
 #' 
