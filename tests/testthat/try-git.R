@@ -1,3 +1,6 @@
+edb <- git_commit_edgelist()
+
+
 g <- git_commit_graph()
 dir <- "../network"
 g <- git_commit_graph(dir)
@@ -56,11 +59,10 @@ plot(
   edge.arrow.size = .5
 )
 
+# Get giant component
 k <- clusters(g)
 s <- induced_subgraph(g, V(g)[k$membership == which.max(k$csize)])
-deg <- degree(s, mode = "out")
-table(deg)
-edb <- as_edgelist(s, names = FALSE)
+# Topological sort
 tsort <- pooh::tsort(
   edb[,1],
   edb[,2], 
