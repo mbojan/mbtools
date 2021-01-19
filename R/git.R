@@ -162,6 +162,13 @@ if(FALSE) {
     vertex.label = NA,
     edge.arrow.size = 0.5
   )
+  
+  library(tidygraph)
+  library(ggraph)
+  as_tbl_graph(g) %>%
+    ggraph(layout="sugiyama") +
+    geom_node_point() +
+    geom_edge_link()
 }
 
 
