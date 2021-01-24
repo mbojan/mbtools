@@ -81,3 +81,16 @@ plot(
 )
 
 plot(tsort, order(V(s)$author_timestamp, decreasing = TRUE))
+
+
+
+
+
+
+z <- make_graph(c(1,2, 2,3, 3,4)) %>%
+  set_vertex_attr("list for all", value = list(4,3,2,1)) %>%
+  set_vertex_attr("list for some", index = 1:3, value = list(2,3,4))
+
+get.vertex.attribute(z, "list for all")
+
+get.vertex.attribute(z, "list for some")

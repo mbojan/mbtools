@@ -126,10 +126,11 @@ git_refs <- function(dir = ".") {
 #' @return The igraph object returned by `git_commit_graph()` has vertices
 #'   correspond to commits and edges point from commits to their parents. It has
 #'   additionally the following attributes defined:
-#'   - `refs` - graph attribute holding a tibble as returned by [git_refs()]
 #'   - `name` - vertex attribute with commit hash
 #'   - `author_timestamp` - vertex attribute with author date timestamp
 #'   - `author_datetime` - vertex attribute with author date in ISO  8601 format
+#'   - `refs` - vertex attribute with a list of either `NULL` or character
+#'   vector of refs pointing to the particular commit
 #' 
 #' @export
 git_commit_graph <- function(dir = ".") {
@@ -137,10 +138,11 @@ git_commit_graph <- function(dir = ".") {
   vdb <- git_commits(dir, col_types = "ccc")
   g <- igraph::graph_from_data_frame(
     as.data.frame(edb),
-    directed=TRUE, 
+    directed=TRUE,
     vertices = as.data.frame(vdb)
   )
-  igraph::set_graph_attr(g, "refs", git_refs(dir))
+  reflist <- with(git_refs(dir), tapply(ref, .commit, unique))
+  set_vertex_attr(g, name = "refs", index = V(g)[names(reflist)], value = reflist)
 }
 
 #' @rdname git
@@ -154,17 +156,25 @@ git_commit_graph <- function(dir = ".") {
 #'   sequence for vertices in `g` corresponding to refs specifed by `refs`.
 #' 
 #' @export
-Vref <- function(g, refs) {
+Vref <- function(g, refs=NULL, simplify = FALSE, ...) {
   stopifnot(inherits(g, "igraph"))
-  stopifnot("refs" %in% igraph::list.graph.attributes(g))
-  mv <- match(refs, g$refs$ref)
-  bad_ref <- is.na(mv)
-  if(any(bad_ref))
-    stop("can't find these refs: ", paste(dQuote(refs[bad_ref]), collapse=", ") )
-  igraph::V(g)[g$refs$.commit[mv]]
+  stopifnot("refs" %in% igraph::vertex_attr_names(g))
+  refvec <- unlist(V(g)$refs)
+  if(is.null(refs)) {
+    i <- grep()
+
+  } else {
+    mv <- match(refs, g$refs$ref)
+    bad_ref <- is.na(mv)
+    if(any(bad_ref))
+      stop("can't find these refs: ", paste(dQuote(refs[bad_ref]), collapse=", ") )
+    igraph::V(g)[g$refs$.commit[mv]]
+  }
 }
 
-
+grep_search <- function(pat, x, ...) {
+  
+}
 
 
 
