@@ -163,3 +163,30 @@ Vref <- function(g, refs) {
     stop("can't find these refs: ", paste(dQuote(refs[bad_ref]), collapse=", ") )
   igraph::V(g)[g$refs$.commit[mv]]
 }
+
+
+
+
+
+
+# Layout curved branches --------------------------------------------------
+
+# procedure curved_branches(C)
+#   Initialize an empty list of active branches B
+#   for c in C from lowest i-coordinate to largest
+#     if c.branchChildren is not empty
+#       select d in c.branchChildren
+#       replace d by c in B
+#     else
+#       insert c in B
+#     for d' in c.branchChildren \ {d}
+#                 remove d' from B
+#     c.j = index of c in B
+
+# Active branch = a ref that has no children
+
+curved_branches <- function(g) {
+  refs <- Vref(g)
+  active_branches <- refs[degree(g, v = refs, mode = "in") == 0]
+  active_branches
+}
