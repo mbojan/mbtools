@@ -37,7 +37,6 @@ Collate:
     'is.symmetric.R'
     'isGraphical.R'
     'lss.R'
-    'mbrepo.R'
     'mbtools-package.R'
     'read_yaml.R'
     'rescale.R'
