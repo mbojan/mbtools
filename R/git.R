@@ -156,7 +156,7 @@ git_commit_graph <- function(dir = ".") {
 #'   sequence for vertices in `g` corresponding to refs specifed by `refs`.
 #' 
 #' @export
-Vref <- function(g, refs=NULL, simplify = FALSE, ...) {
+Vref <- function(g, refs=NULL, ...) {
   stopifnot(inherits(g, "igraph"))
   stopifnot("refs" %in% igraph::vertex_attr_names(g))
   refvec <- unlist(V(g)$refs)

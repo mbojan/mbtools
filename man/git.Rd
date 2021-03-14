@@ -20,7 +20,7 @@ git_refs(dir = ".")
 
 git_commit_graph(dir = ".")
 
-Vref(g, refs = NULL, simplify = FALSE, ...)
+Vref(g, refs = NULL, ...)
 }
 \arguments{
 \item{dir}{directory with git repo, defaults to current directory}
