@@ -20,7 +20,7 @@ git_refs(dir = ".")
 
 git_commit_graph(dir = ".")
 
-Vref(g, refs)
+Vref(g, refs = NULL, simplify = FALSE, ...)
 }
 \arguments{
 \item{dir}{directory with git repo, defaults to current directory}
@@ -67,10 +67,11 @@ The igraph object returned by \code{git_commit_graph()} has vertices
 correspond to commits and edges point from commits to their parents. It has
 additionally the following attributes defined:
 \itemize{
-\item \code{refs} - graph attribute holding a tibble as returned by \code{\link[=git_refs]{git_refs()}}
 \item \code{name} - vertex attribute with commit hash
 \item \code{author_timestamp} - vertex attribute with author date timestamp
 \item \code{author_datetime} - vertex attribute with author date in ISO  8601 format
+\item \code{refs} - vertex attribute with a list of either \code{NULL} or character
+vector of refs pointing to the particular commit
 }
 
 Function \code{Vref()} works similarly to \code{\link[igraph:V]{igraph::V()}} returning vertex
