@@ -142,7 +142,7 @@ git_commit_graph <- function(dir = ".") {
     vertices = as.data.frame(vdb)
   )
   reflist <- with(git_refs(dir), tapply(ref, .commit, unique))
-  set_vertex_attr(g, name = "refs", index = V(g)[names(reflist)], value = reflist)
+  set_vertex_attr(g, name = "refs", index = igraph::V(g)[names(reflist)], value = reflist)
 }
 
 #' @rdname git
@@ -159,7 +159,7 @@ git_commit_graph <- function(dir = ".") {
 Vref <- function(g, refs=NULL, ...) {
   stopifnot(inherits(g, "igraph"))
   stopifnot("refs" %in% igraph::vertex_attr_names(g))
-  refvec <- unlist(V(g)$refs)
+  refvec <- unlist(igraph::V(g)$refs)
   if(is.null(refs)) {
     i <- grep()
 
@@ -197,6 +197,6 @@ grep_search <- function(pat, x, ...) {
 
 curved_branches <- function(g) {
   refs <- Vref(g)
-  active_branches <- refs[degree(g, v = refs, mode = "in") == 0]
+  active_branches <- refs[igraph::degree(g, v = refs, mode = "in") == 0]
   active_branches
 }
