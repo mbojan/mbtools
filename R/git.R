@@ -142,7 +142,7 @@ git_commit_graph <- function(dir = ".") {
     vertices = as.data.frame(vdb)
   )
   reflist <- with(git_refs(dir), tapply(ref, .commit, unique))
-  set_vertex_attr(g, name = "refs", index = igraph::V(g)[names(reflist)], value = reflist)
+  igraph::set_vertex_attr(g, name = "refs", index = igraph::V(g)[names(reflist)], value = reflist)
 }
 
 #' @rdname git
