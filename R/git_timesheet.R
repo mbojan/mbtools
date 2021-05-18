@@ -65,3 +65,22 @@ git_timesheet <- function(dir=".", threshold=75) {
 }
 
 
+# Export to Toggl 
+# library(lubridate)
+# 
+# z %>%
+#   mutate(
+#     dur = lubridate::as.period(lubridate::as.duration(lubridate::interval(from,to)))
+#   ) %>%
+#   transmute(
+#     Email = "michal2992@gmail.com",
+#     Project = "Package `statustraj`",
+#     `Start date` = as.Date(from),
+#     `Start time` = sprintf('%02d:%02d:%02d', round(hour(from)), round(minute(from)), round(second(from))),
+#     Duration = sprintf('%02d:%02d:%02d', round(hour(dur)), round(minute(dur)), round(second(dur)))
+#   ) %>%
+#   write_csv(file = "~/Desktop/statustraj.csv")
+# 
+# library(lubridate)
+# td <- 
+#   
