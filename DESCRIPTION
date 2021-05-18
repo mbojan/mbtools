@@ -33,6 +33,7 @@ Collate:
     'dePolish.R'
     'devlib.R'
     'git.R'
+    'git_timesheet.R'
     'grepex.R'
     'is.symmetric.R'
     'isGraphical.R'
