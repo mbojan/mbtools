@@ -7,7 +7,7 @@ Date: 2013-06-26
 Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
     email="michal2992@gmail.com")
 Imports:
-    scales, utils, graphics, stats, yaml, dplyr, igraph, readr, tidyr, withr, magrittr
+    scales, utils, graphics, stats, yaml, dplyr, igraph, readr, tidyr, withr, magrittr, cranet
 URL: https://github.com/mbojan/mbtools
 Depends:
     methods
@@ -39,6 +39,7 @@ Collate:
     'isGraphical.R'
     'lss.R'
     'mbtools-package.R'
+    'missing_deps.R'
     'read_yaml.R'
     'rescale.R'
     'ruler.R'
