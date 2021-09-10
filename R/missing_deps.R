@@ -18,6 +18,8 @@
 #'   as a `"graph"` attribute.
 #'
 #' @seealso [cranet::pkgnet()]
+#' 
+#' @export
 missing_deps <- function(deps = c("Depends", "Imports", "LinkingTo"), ...) {
   g <- cranet::pkgnet(
     installed.packages(...),
