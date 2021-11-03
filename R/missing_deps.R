@@ -22,7 +22,7 @@
 #' @export
 missing_deps <- function(deps = c("Depends", "Imports", "LinkingTo"), ...) {
   g <- cranet::pkgnet(
-    installed.packages(...),
+    utils::installed.packages(...),
     vnams = c("Version"),
     enams = deps
   )
@@ -34,4 +34,4 @@ missing_deps <- function(deps = c("Depends", "Imports", "LinkingTo"), ...) {
   )
 }
 
-
+globalVariables("name")

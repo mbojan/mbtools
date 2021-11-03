@@ -19,51 +19,52 @@
 #' @export
 git_timesheet <- function(dir=".", threshold=75) {
   dane <- git_log(dir, format_log="%H\t%ai", delim = "\t", col_names = c("md5", "date")) %>%
-    mutate(
+    dplyr::mutate(
       date = lubridate::ymd_hms(date)
     ) %>%
-    arrange(date) %>%
-    mutate(
-      d = as.numeric(date - lag(date)) / 60, # minutes
-      t60m = replace_na(d >= threshold, TRUE),
+    dplyr::arrange(date) %>%
+    dplyr::mutate(
+      d = as.numeric(date - dplyr::lag(date)) / 60, # minutes
+      t60m = tidyr::replace_na(d >= threshold, TRUE),
       streak = cumsum(replace(t60m, 1, TRUE))
     )
 
   streak_freq <- dane %>%
-    count(streak)
+    dplyr::count(streak)
   
   # Average commit "duration" within a streak
   commit_avg <- dane %>%
-    anti_join(
-      filter(streak_freq, n == 1),
+    dplyr::anti_join(
+      dplyr::filter(streak_freq, n == 1),
       by = "streak"
     ) %>%
-    group_by(streak) %>%
-    summarise(
+    dplyr::group_by(streak) %>%
+    dplyr::summarise(
       mu = mean(d[-1], na.rm=TRUE)
     )
   
   commit_times <- dane %>%
-    left_join(
-      mutate(commit_avg, t60m = TRUE),
+    dplyr::left_join(
+      dplyr::mutate(commit_avg, t60m = TRUE),
       by = c("streak", "t60m")
     ) %>%
-    mutate(
-      commit_time = case_when(
+    dplyr::mutate(
+      commit_time = dplyr::case_when(
         !t60m ~ d,
         t60m ~ mu
       ),
-      commit_time = replace_na(commit_time, mean(commit_time, na.rm=TRUE))
+      commit_time = tidyr::replace_na(commit_time, mean(commit_time, na.rm=TRUE))
     )
   
   commit_times %>%
-    group_by(streak) %>%
-    summarise(
+    dplyr::group_by(streak) %>%
+    dplyr::summarise(
       from = min(date) - lubridate::dseconds(commit_time[1] * 60),
       to = max(date)
     )
 }
 
+globalVariables(c("d", "t60m", "streak", "n", "commit_time"))
 
 # Export to Toggl 
 # library(lubridate)
