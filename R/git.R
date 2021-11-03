@@ -29,11 +29,11 @@ git_log <- function(dir = ".", format_log, delim = " ", ...) {
   withr::with_dir(dir, {
     l <- system2(
       "git", 
-      paste0("log --all --format=\"", paste(format_log, collapse=" "), "\""), 
+      paste0("log --all --format=\"", paste(format_log, collapse=delim), "\""), 
       stdout=TRUE
     )
   })
-  readr::read_delim(l, delim = delim, ...)
+  readr::read_delim(I(l), delim = delim, ...)
 }
 
 #' @rdname git
