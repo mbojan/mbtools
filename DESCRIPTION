@@ -15,7 +15,9 @@ Depends:
 Suggests:
     devtools,
     testthat,
-    sna
+    sna,
+    sessioninfo,
+    clipboard
 Description: Various utility functions for some common tasks: data
     manipulation, utilities helping in developing R packages. A lot of
     things are outdated. This package is a black hole of R routines
@@ -46,6 +48,7 @@ Collate:
     'rescale.R'
     'ruler.R'
     'see.R'
+    'session_info.R'
     'setcompare.R'
     'show.keywords.R'
     'sourceall.R'
