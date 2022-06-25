@@ -3,9 +3,8 @@ Type: Package
 Title: Chaotic Collection of Functions and Datasets Possibly Useful Also To
     Others
 Version: 0.3-0
-Date: 2013-06-26
 Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
-    email="michal2992@gmail.com")
+    email="michal2992@gmail.com", comment=c(ORCID="0000-0001-7503-852X"))
 Imports:
     scales, utils, graphics, stats, yaml, dplyr, igraph, readr, tidyr, withr, 
     magrittr, cranet, lubridate, labelled
