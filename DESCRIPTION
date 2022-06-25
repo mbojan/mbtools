@@ -22,7 +22,8 @@ Description: Various utility functions for some common tasks: data
     manipulation, utilities helping in developing R packages. A lot of
     things are outdated. This package is a black hole of R routines
     I wrote.
-Remotes: mbojan/cranet
+Remotes: mbojan/cranet,
+    mbojan/clipboard
 License: GPL-2
 LazyLoad: yes
 Encoding: UTF-8
