@@ -7,7 +7,7 @@ Authors@R: person("Michal", "Bojanowski", role=c("aut", "cre"),
     email="michal2992@gmail.com", comment=c(ORCID="0000-0001-7503-852X"))
 Imports:
     scales, utils, graphics, stats, yaml, dplyr, igraph, readr, tidyr, withr, 
-    magrittr, cranet, lubridate, labelled
+    magrittr, cranet, lubridate
 URL: https://github.com/mbojan/mbtools
 Depends:
     methods
@@ -16,7 +16,8 @@ Suggests:
     testthat,
     sna,
     sessioninfo,
-    clipboard
+    clipboard,
+    labelled
 Description: Various utility functions for some common tasks: data
     manipulation, utilities helping in developing R packages. A lot of
     things are outdated. This package is a black hole of R routines
