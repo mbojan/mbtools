@@ -45,6 +45,7 @@ Collate:
     'lss.R'
     'mbtools-package.R'
     'missing_deps.R'
+    'rd_describe.R'
     'read_yaml.R'
     'rescale.R'
     'ruler.R'
