@@ -3,6 +3,7 @@
 #' Run `sessioninfo::session_info()`, format the output and copy to clipboard
 #' for easy pasting on GitHub.
 #' 
+#' @importFrom utils capture.output
 #' @export
 
 session_info <- function() {
