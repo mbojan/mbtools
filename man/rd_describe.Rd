@@ -27,13 +27,13 @@ Generate RD markup for the definition list via the \verb{\\describe} command.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: The default method expects character vector of
+\item \code{rd_describe(default)}: The default method expects character vector of
 "terms" and a character vector \code{description} of the same length containing
 the term descriptions.
 
-\item \code{data.frame}: Generate a \verb{\\describe\{\}} markup with a list of
+\item \code{rd_describe(data.frame)}: Generate a \verb{\\describe\{\}} markup with a list of
 variable names together with variable labels defined (as in the
 \strong{labelled} package).
-}}
 
+}}
 \concept{RD generators}

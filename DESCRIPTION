@@ -39,6 +39,7 @@ Collate:
     'devlib.R'
     'git.R'
     'git_timesheet.R'
+    'github.R'
     'grepex.R'
     'is.symmetric.R'
     'isGraphical.R'
@@ -50,12 +51,11 @@ Collate:
     'rescale.R'
     'ruler.R'
     'see.R'
-    'session_info.R'
     'setcompare.R'
     'show.keywords.R'
     'sourceall.R'
     'speedcomp.R'
     'srcenv.R'
     'wcalc.R'
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 Roxygen: list(markdown=TRUE)
