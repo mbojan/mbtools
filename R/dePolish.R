@@ -1,42 +1,26 @@
-.readLetterspl <- function(enc=c("utf-8", "latin2", "win1250"))
-{
-    a <- match.arg(enc)
-    fname <- system.file("extdata", paste("letterspl", enc, "txt", sep="."), package="mbtools")
-    rval <- utils::read.table(fname, header=FALSE, as.is=TRUE)
-    names(rval) <- c("ascii", "nat")
-    rval
-}
-
-
-
 #' Rip Polish letters of the diacritics
 #' 
-#' The function substitutes all Polish letters in the provided character vector
-#' with ASCII counterparts.
-#' 
-#' The function substitutes (with \code{sub}) case-sensitively all Polish
+#' The function substitutes all Polish letters in the provided character
+#' vector with ASCII counterparts.
+#'
+#' @param x character; vector to be processed
+#' @param encoding character; encoding used in `x`
+#'
+#' The function substitutes (with [sub()]) case-sensitively all Polish
 #' letters with simple ASCII counterparts.
 #' 
-#' The \code{encoding} argument defines the way in which Polish letters are
-#' encoded in \code{x}. If \code{NULL} and the platform is Windows the function
+#' The `encoding` argument defines the way in which Polish letters are
+#' encoded in `x`. If `NULL` and the platform is Windows the function
 #' uses CP1250 encoding. If not on Windows the function uses
-#' \code{\link{iconv}} to translate the letters to default encoding on current
-#' locale (via argument \code{from=""}.
+#' [iconv()] to translate the letters to default encoding on current
+#' locale (via argument `from=""`).
 #' 
-#' @param x character vector, do be processed
-#' @param encoding character, encoding used in \code{x}
-#' @return A character vector after substitutions
-#' @seealso \code{\link{sub}}, \code{\link{iconv}}
-#' @examples
+#' @return A character vector after substitutions.
 #' 
-#' \dontshow{
-#' dePolish("dupa")
-#' }
+#' @seealso [sub()], [iconv()]
 #' 
-#' @export dePolish
-dePolish <-
-function (x, encoding = NULL) 
-{
+#' @export
+dePolish <- function (x, encoding = NULL) {
     if (is.null(encoding)) {
         if (.Platform$OS.type == "windows") 
             encoding <- "win1250"
@@ -58,3 +42,21 @@ function (x, encoding = NULL)
     rval
 }
 
+
+
+
+# Read vectors of Polish characters from the package-embedded file
+#
+# @param enc character; which encoding to use
+#
+# @return Data frame of two columns `ascii` and `nat` ("native") with the
+#   characters.
+.readLetterspl <- function(enc=c("utf-8", "latin2", "win1250"))
+{
+  a <- match.arg(enc)
+  fname <- system.file("extdata", paste("letterspl", enc, "txt", sep="."), 
+                       package="mbtools")
+  rval <- utils::read.table(fname, header=FALSE, as.is=TRUE)
+  names(rval) <- c("ascii", "nat")
+  rval
+}

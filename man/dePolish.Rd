@@ -7,34 +7,26 @@
 dePolish(x, encoding = NULL)
 }
 \arguments{
-\item{x}{character vector, do be processed}
+\item{x}{character; vector to be processed}
 
-\item{encoding}{character, encoding used in \code{x}}
-}
-\value{
-A character vector after substitutions
-}
-\description{
-The function substitutes all Polish letters in the provided character vector
-with ASCII counterparts.
-}
-\details{
-The function substitutes (with \code{sub}) case-sensitively all Polish
+\item{encoding}{character; encoding used in \code{x}
+
+The function substitutes (with \code{\link[=sub]{sub()}}) case-sensitively all Polish
 letters with simple ASCII counterparts.
 
 The \code{encoding} argument defines the way in which Polish letters are
 encoded in \code{x}. If \code{NULL} and the platform is Windows the function
 uses CP1250 encoding. If not on Windows the function uses
-\code{\link{iconv}} to translate the letters to default encoding on current
-locale (via argument \code{from=""}.
+\code{\link[=iconv]{iconv()}} to translate the letters to default encoding on current
+locale (via argument \code{from=""}).}
 }
-\examples{
-
-\dontshow{
-dePolish("dupa")
+\value{
+A character vector after substitutions.
 }
-
+\description{
+The function substitutes all Polish letters in the provided character
+vector with ASCII counterparts.
 }
 \seealso{
-\code{\link{sub}}, \code{\link{iconv}}
+\code{\link[=sub]{sub()}}, \code{\link[=iconv]{iconv()}}
 }
