@@ -15,8 +15,15 @@ find better solutions in other packages.
 
 This package is a black hole of R routines I wrote.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/mbojan/mbtools}
+}
+
+}
 \author{
 Michal Bojanowski\cr \email{michal2992@gmail.com}\cr
-\url{http://www.bojanorama.pl}
+\url{http://michalbojanowski.com/}
 }
 \keyword{package}
