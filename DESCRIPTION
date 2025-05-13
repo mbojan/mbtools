@@ -10,7 +10,8 @@ Imports:
     magrittr, cranet, lubridate
 URL: https://github.com/mbojan/mbtools
 Depends:
-    methods
+    methods,
+    R (>= 4.1.0)
 Suggests:
     devtools,
     testthat,
