@@ -105,6 +105,8 @@ Digitize <- setRefClass("Digitize", contain="Locator",
 # Auxiliary functions
 
 # Plot raster object with aspect ratio = 1
+
+#' @exportS3Method graphics::plot
 plot.raster <- function(r, type="n", asp=1, ann=FALSE, ...)
 {
   op <- graphics::par(mar=c(2, 2, 0.5, 0.5), mgp=c(1, 0.5, 0), cex.axis=0.7)
