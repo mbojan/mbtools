@@ -57,5 +57,5 @@ Collate:
     'speedcomp.R'
     'srcenv.R'
     'wcalc.R'
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Roxygen: list(markdown=TRUE)
