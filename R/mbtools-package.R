@@ -11,9 +11,8 @@
 #' 
 #' @name mbtools-package
 #' @aliases mbtools-package mbtools
-#' @docType package
 #' @import methods
 #' @author Michal Bojanowski\cr \email{michal2992@@gmail.com}\cr
-#' \url{http://www.bojanorama.pl}
+#' \url{http://michalbojanowski.com/}
 #' @keywords package
-NULL
+"_PACKAGE"
