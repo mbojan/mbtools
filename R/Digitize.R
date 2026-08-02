@@ -107,12 +107,12 @@ Digitize <- setRefClass("Digitize", contain="Locator",
 # Plot raster object with aspect ratio = 1
 
 #' @exportS3Method graphics::plot
-plot.raster <- function(r, type="n", asp=1, ann=FALSE, ...)
+plot.raster <- function(x, type="n", asp=1, ann=FALSE, ...)
 {
   op <- graphics::par(mar=c(2, 2, 0.5, 0.5), mgp=c(1, 0.5, 0), cex.axis=0.7)
   on.exit(graphics::par(op))
-  plot(c(1, ncol(r)), c(1, nrow(r)), type=type, asp=asp, ann=ann, ...)
-  graphics::rasterImage(r, 1, 1, ncol(r), nrow(r))
+  plot(c(1, ncol(x)), c(1, nrow(x)), type=type, asp=asp, ann=ann, ...)
+  graphics::rasterImage(x, 1, 1, ncol(x), nrow(x))
 }
 
 # Paste point coordinatess for pretty printing
